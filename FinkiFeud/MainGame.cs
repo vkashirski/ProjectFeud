@@ -46,14 +46,15 @@ namespace FinkiFeud
                 String[] player = playersAndPoints[i].Split('-');
                 points = Convert.ToInt32(player[1]);
                 name = player[0];
-                Player p1 = new Player(points, name, "");
+                Player p1 = new Player(points, name, "",null);
                 players.Add(p1);
             }
 
             //current player
-            Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty);
+            Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
             Diff = currentPlayer.difficulty;
             textBox2.Text = currentPlayer.Name;
+            pbPlayerIcon.Image = currentPlayer.PlayerIcon;
 
             //points multiplier
             if (Diff.Equals("Easy"))
@@ -173,7 +174,7 @@ namespace FinkiFeud
 
         private void MainGame_Paint(object sender, PaintEventArgs e)
         {
-            
+          
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -195,7 +196,7 @@ namespace FinkiFeud
             foreach (String answer in answers)
             {
                 //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
-                if (answer.Contains(triedAnswer)) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
+                if (answer.Trim().ToLower() == triedAnswer.ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
                 {
                     int index = answers.IndexOf(answer);
                     if (index == 0)

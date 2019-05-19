@@ -12,7 +12,7 @@ namespace FinkiFeud
 {
     public partial class ChooseGame : Form
     {
-        public static Player player = new Player(0, "", "");
+        public static Player player = new Player(0, "", "",null);
         public ChooseGame()
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace FinkiFeud
             String name = tbTeam1Player1.Text;
             String diff = comboBox1.Text;
             int points = 0;
-            Player p1 = new Player(points, name, diff);
+            Image playerIcon = pbTeam1Player1.Image;
+            Player p1 = new Player(points, name, diff,playerIcon);
             player = p1;
             
             MainGame game = new MainGame();

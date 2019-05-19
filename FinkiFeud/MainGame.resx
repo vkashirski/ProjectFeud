@@ -469,6 +469,27 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>327, 17</value>
   </metadata>
+  <data name="pbPlayerIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAAK/INwWK6QAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAANhSURBVDhPjVRZ
+        T1NREO5fUmiR7raCIEtcwERrBI0vLiHGR+Mb8c2Q+KQSoyi4gqIQNoWWHQVbV9wCCUVbFOtt74W2xCWf
+        852CrDFO8t3MnfnmO3PPmXNN2MB+pxPQnp5H5P5+hK97MHXFpkCfMebI2cjWCeqv6jFdb4f2pASpSR9+
+        fDuGX/opBfqMMUcOuWttleCs/wxi/u1Ihyvxc7YCC9OlSH/0IPnGqkCfMebIIZc1K+2vIBPxoSIsfPJh
+        YbIQyReWf4IcclmzUlQJsvXxpjyEHu9GatyF+aDlv0Aua1i79Pkmbi73I9BYCl+5C3t3OVF71oqpxxbM
+        jZo3BHPkkMsa1lKDWiaeWKw3H8l3+TBGzBhtPYyamhoUFxfj5IkKNF/2qThBnzHmyCGXcdZSg1omjoE+
+        VgB9IDuDiF+13tLSgqqqKpw/dxr6oEWBPmPM0fRoYLlONKhl4mwZwTwkAlkK4fEWaJqG6upqZGXJ+9tW
+        6P05CvQZY44cvif6LAL5gmC+mlMTB1YfsCLenY14jxkzQ0fxYbQeoeAIPow1YGb4uBRYFWZGTqjYqlxg
+        CxL+HBjDDjX8SjDWthnaIzM02Wyte4sI5yIesCHeaxchJxL9ayAx5hTHL80IPyb1SpBtfm3chO+dIvYo
+        VwRJckiBS4q3IjHoVdCHtimo9wFPJtfnElER77Fhtjk788ncyJlbZnzvsIqgCPndSPRKUb/M1tB26MOF
+        0Ed2wHiSAX0Vkxw55Mb9W/GlKSdzKDzqzzel5QcWScjKfUIaLEDorhttF6xou2hF+yU72msXIX7onhfG
+        0xIRL1JcrcuOyB1bZmw4jFN1dkQb5JR7PLIyOylF2yWHGo2NrOOyG3OhPTDGdsIY3IEvd3NEw5EZbBJ4
+        bSINdtmHXBhyN+eCZXjxsBAdV7zorCPy0HltEeK/bC/G/Ot9cv12ItbpROSWc/nqqacYL3jkppx4hwPG
+        sxIkx31IvT+I1MdKpCYOIb0I+ozNvdoNLeBB9I40svbnsGRK9IYd31odmH9eIFeqDOnJA1gIH5HflmBK
+        FpgoR/JtEWJdLkRvO1aJ0VYJ0th6+KpNVnYg1u6Wjef/0CviMjajXhFyI9roRLhOLsTiZ660dYI0bi5P
+        jGPA2eLAEvQZY46c9Qb8ATNb4ig3gKiNAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAZABkAAD/7gAOQWRvYmUAZAAAAAAB/+EGgkV4aWYAAE1NACoAAAAIAAwBAAAD

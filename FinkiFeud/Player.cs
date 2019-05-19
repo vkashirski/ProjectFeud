@@ -12,26 +12,14 @@ namespace FinkiFeud
         public int Points { get; set; }
         public string Name { get; set; }
         public String difficulty { get; set; }
-        public Player(int num, string name, String difficulty)
+        public Image PlayerIcon { get; set; }
+        public Player(int num, string name, String difficulty, Image playerIcon)
         {
             Points = num;
             Name = name;
             this.difficulty = difficulty;
+            PlayerIcon = playerIcon;
         }
-
-        /*public Image PlayerIcon { get; set; }
-
-        public Player(int num, string name, Image img)
-        {
-            Points = num;
-            Name = name;
-            PlayerIcon = img;
-        }
-
-        public void Draw(Graphics g)
-        {
-            g.DrawImageUnscaled(PlayerIcon, 100, 100, 20, 20);
-        }
-        */
+       
     }
 }

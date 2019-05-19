@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddQuestions.Designer.cs">
+      <DependentUpon>AddQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighScores.Designer.cs">
+      <DependentUpon>HighScores.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,9 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddQuestions.resx">
+      <DependentUpon>AddQuestions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseGame.resx">
       <DependentUpon>ChooseGame.cs</DependentUpon>
     </EmbeddedResource>
