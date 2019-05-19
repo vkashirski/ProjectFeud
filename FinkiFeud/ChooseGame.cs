@@ -51,6 +51,14 @@ namespace FinkiFeud
 
         private void nudTeam2_ValueChanged(object sender, EventArgs e)
         {
+            if (nudTeam2.Value >= 1)
+            {
+                tbTeam2Player1.ReadOnly = false;
+            }
+            else
+            {
+                tbTeam2Player1.ReadOnly = true;
+            }
             if (nudTeam2.Value >= 2)
             {
                 tbTeam2Player2.ReadOnly = false;
@@ -177,7 +185,7 @@ namespace FinkiFeud
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-           /* Team1 = new Team((int)nudTeam1.Value);
+            /* Team1 = new Team((int)nudTeam1.Value);
             if (nudTeam1.Value >= 1) {
                 Team1.Players.Add(new Player(1, tbTeam1Player1.Text, pbTeam1Player1.Image));
             }
