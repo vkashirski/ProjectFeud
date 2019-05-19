@@ -18,11 +18,18 @@ namespace FinkiFeud
         public static int counter = 0;
         public bool flag = false;
         bool questionsAcessible = false;
+        DateTime startTime;
         public List<String> answers = new List<String>();
         public MainGame()
         {
             InitializeComponent();
             nextQuestion();
+            
+            timer1.Tick += (s, ev) => { questionTime.Text = String.Format("{0:00}:{1:00}",0,(DateTime.Now - startTime).Seconds); };
+            
+            startTime = DateTime.Now;
+            timer1.Interval = 100;       // every 1/10 of a second
+            timer1.Start();
         }
         public void nextQuestion()
         {
@@ -117,6 +124,7 @@ namespace FinkiFeud
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             String triedAnswer = tbAnswer.Text.Trim();
+            int count = 0;
             foreach (String answer in answers)
             {
                 if (answer.Contains(triedAnswer))
@@ -164,11 +172,52 @@ namespace FinkiFeud
                         answer8.Text = answer;
                         answer8.Image = null;
                     }
-
+                    tbAnswer.Text = "";
                 }
-                
+               
+            }
+            if (count >= 3) {
+                answers.Clear();
+                nextQuestion();
             }
            
+        }
+        int count = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            count++;
+            if (count == 300)  //or whatever your limit is
+            {
+                timer1.Stop();
+                answers.Clear();
+                resetImages();
+                nextQuestion();
+                count = 0;
+                startTime = DateTime.Now;
+                timer1.Start();
+            }
+        }
+
+
+        private void resetImages()
+        {
+            answer1.Text = "";
+            answer1.Image = Properties.Resources.QuestionMark;
+            answer2.Text = "";
+            answer2.Image = Properties.Resources.QuestionMark;
+            answer3.Text = "";
+            answer3.Image = Properties.Resources.QuestionMark;
+            answer4.Text = "";
+            answer4.Image = Properties.Resources.QuestionMark;
+            answer5.Text = "";
+            answer5.Image = Properties.Resources.QuestionMark;
+            answer6.Text = "";
+            answer6.Image = Properties.Resources.QuestionMark;
+            answer7.Text = "";
+            answer7.Image = Properties.Resources.QuestionMark;
+            answer8.Text = "";
+            answer8.Image = Properties.Resources.QuestionMark;
         }
     }
 }
