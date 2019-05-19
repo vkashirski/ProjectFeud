@@ -17,24 +17,27 @@ namespace FinkiFeud
         public static List<int> questionIndex = new List<int>();
         public static int counter = 0;
         public bool flag = false;
-        bool questionsAcessible = false;
         DateTime startTime;
+
+        //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
+
         public MainGame()
         {
             InitializeComponent();
             DoubleBuffered = true;
+            //Load the first question
             nextQuestion();
             
-            timer1.Tick += (s, ev) => { questionTime.Text = String.Format("{0:00}:{1:00}",0,(DateTime.Now - startTime).Seconds); };
-            
+            //The timer initialization
+            timer1.Tick += (s, ev) => { questionTime.Text = String.Format("{0:00}:{1:00}",0,(DateTime.Now - startTime).Seconds); };           
             startTime = DateTime.Now;
             timer1.Interval = 100;       // every 1/10 of a second
             timer1.Start();
         }
         public void nextQuestion()
         {
-           
+            resetImages();
             //read questions txt
             String questionsFile = File.ReadAllText("Questions.txt");
 
@@ -65,6 +68,7 @@ namespace FinkiFeud
             if (questionIndex[counter] == 0)
             {
                 tbQuestion.Text = divided[0];
+                //Add all the answers into the list
                 for (int i = 1; i < divided.Length; i++)
                 {
                     /*button1.Text = divided[1];
@@ -77,11 +81,11 @@ namespace FinkiFeud
                     button11.Text = divided[8];*/
                     answers.Add(divided[i]);
                 }
-                questionsAcessible = true;
             }
             else
             {
                 tbQuestion.Text = divided[1];
+                //Add all the answers into the list
                 for (int i = 2; i < divided.Length; i++)
                 {
                     /*button1.Text = divided[1];
@@ -94,7 +98,6 @@ namespace FinkiFeud
                     button11.Text = divided[8];*/
                     answers.Add(divided[i]);
                 }
-                questionsAcessible = true;
             }
 
             //counter and reset questions order
@@ -124,10 +127,13 @@ namespace FinkiFeud
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            String triedAnswer = tbAnswer.Text.Trim();
-            int count = 0;
+            String triedAnswer = tbAnswer.Text.Trim();//Contains the answer entered by the user once the button is clicked
+
+
+            //Check if the answer the user has entered is anywhere in the list answers
             foreach (String answer in answers)
             {
+                //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
                 if (answer.Contains(triedAnswer))
                 {
                     int index = answers.IndexOf(answer);
@@ -177,22 +183,20 @@ namespace FinkiFeud
                 }
                
             }
-            if (count >= 3) {
-                answers.Clear();
-                nextQuestion();
-            }
            
         }
+
+        //A counter for the timer
         int count = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+           //Every tick increase the timer
             count++;
-            if (count == 300)  //or whatever your limit is
+            if (count == 300)  //limit your timer according to the ticks the timer has done 300 ~= 35 seconds
             {
+                //reset the timer and load a new question
                 timer1.Stop();
                 answers.Clear();
-                resetImages();
                 nextQuestion();
                 count = 0;
                 startTime = DateTime.Now;
@@ -200,7 +204,7 @@ namespace FinkiFeud
             }
         }
 
-
+        //Resets all the answers so they are not visible to the player, only used when the nextQuestion function is triggered
         private void resetImages()
         {
             answer1.Text = "";
