@@ -23,6 +23,7 @@ namespace FinkiFeud
         public MainGame()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             nextQuestion();
             
             timer1.Tick += (s, ev) => { questionTime.Text = String.Format("{0:00}:{1:00}",0,(DateTime.Now - startTime).Seconds); };
