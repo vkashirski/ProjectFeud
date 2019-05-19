@@ -1,0 +1,89 @@
+Which direction has the most students in FINKI?
+PET
+KNI
+IKI
+KM
+PIT
+KI
+IMB
+KN
+~
+Which subject do the most students consider favourite in FINKI?
+Kompjuterski Mrezhi
+Internet Tehnologii
+Vizuelno Programiranje
+Objektno orientirano programiranje
+Diskretna Matematika 1
+Bazi na podatoci
+Mobilni platformi i programiranje
+Veb Dizajn
+~
+Which subject do most students think is the hardest at FINKI?
+Verojatnost i statistika
+Algoritmi i podatochni strukturi
+Diskretna Matematika 2
+Arhitektura i organizacija na kompjuteri
+Operativni Sistemi
+Teorija na informacii
+Kalkulus 2
+Veshtachka intelegencija
+~
+Which brand of laptops do the students of FINKI most preffer?
+ASUS
+Dell
+Lenovo
+Acer
+PC
+HP
+Alienware
+Toshiba
+~
+How long is the average amount of time (in minutes), a student of FINKI needs to get to campus?
+15
+20
+10
+40
+35
+50
+2
+5
+~
+Which College would the students of FINKI attend, if FINKI didn't exist?
+FEIT
+Elektro
+Arhitektonski
+Psiholoshki
+TMF
+PMF
+Nikoj
+Medicina
+~
+How long do the students of FINKI think the new building of FINKI will get finished building (in years)?
+Never
+5
+2
+4
+3
+6
+7
+10
+~
+How do most students of FINKI get to campus?
+Pesh
+Avtobus
+Avtomobil
+Velosiped
+Taksi
+Voz
+Helikopter
+Avion
+~
+How many number of classes do most students of FINKI attend per week?
+10
+0
+15
+6
+30
+1
+9
+2
