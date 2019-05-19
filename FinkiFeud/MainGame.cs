@@ -17,7 +17,11 @@ namespace FinkiFeud
         public static List<int> questionIndex = new List<int>();
         public static int counter = 0;
         public bool flag = false;
-        DateTime startTime;
+        public static int Time = 60;
+        public List<Player> players = new List<Player>();
+        public String Diff;
+        public int multiplier = 1;
+        public int Points = 0;
 
         //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
@@ -28,12 +32,69 @@ namespace FinkiFeud
             DoubleBuffered = true;
             //Load the first question
             nextQuestion();
-            
+
             //The timer initialization
-            timer1.Tick += (s, ev) => { questionTime.Text = String.Format("{0:00}:{1:00}",0,(DateTime.Now - startTime).Seconds); };           
-            startTime = DateTime.Now;
-            timer1.Interval = 100;       // every 1/10 of a second
             timer1.Start();
+
+            //create list of players from Players.txt
+            String playersFile = File.ReadAllText("Players.txt");
+            String[] playersAndPoints = playersFile.Split(new string[] { "\n" }, StringSplitOptions.None);
+            String name = "";
+            int points = 0;
+            for (int i = 0; i < playersAndPoints.Length; i++)
+            {
+                String[] player = playersAndPoints[i].Split('-');
+                points = Convert.ToInt32(player[1]);
+                name = player[0];
+                Player p1 = new Player(points, name, "");
+                players.Add(p1);
+            }
+
+            //current player
+            Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty);
+            Diff = currentPlayer.difficulty;
+            textBox2.Text = currentPlayer.Name;
+
+            //points multiplier
+            if (Diff.Equals("Easy"))
+                multiplier = 1;
+            else if (Diff.Equals("Normal"))
+                multiplier = 2;
+            else if (Diff.Equals("Hard"))
+                multiplier = 4;
+
+            //difficulty time setting
+            if (Diff.Equals("Easy"))
+            {
+                Time = 61;
+            }
+            if (Diff.Equals("Normal"))
+            {
+                Time = 41;
+            }
+            if (Diff.Equals("Hard"))
+            {
+                Time = 21;
+            }
+        }
+
+        public void gameDone()
+        {
+            //get new info
+            String name = ChooseGame.player.Name;
+            String points = Points.ToString();
+            String playersInfo = File.ReadAllText("Players.txt");
+            String playerInfo = name + "-" + points;
+            String final = playersInfo + "\n" + playerInfo;
+
+            //write
+            using (StreamWriter sw = File.CreateText("Players.txt"))
+            {
+                sw.Write(final);
+            }
+
+            //close game
+            this.Close();
         }
         public void nextQuestion()
         {
@@ -104,9 +165,9 @@ namespace FinkiFeud
             counter++;
             if (counter == questionCounter)
             {
-                counter = 0;
                 flag = false;
                 MessageBox.Show("No more Questions");
+                gameDone();
             }
         }
 
@@ -134,74 +195,90 @@ namespace FinkiFeud
             foreach (String answer in answers)
             {
                 //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
-                if (answer.Contains(triedAnswer))
+                if (answer.Contains(triedAnswer)) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
                 {
                     int index = answers.IndexOf(answer);
                     if (index == 0)
                     {
                         answer1.Text = answer;
                         answer1.Image = null;
+                        Points += 12 * multiplier;
 
                     }
                     if (index == 1)
                     {
                         answer2.Text = answer;
                         answer2.Image = null;
+                        Points += 10 * multiplier;
 
                     }
                     if (index == 2)
                     {
                         answer3.Text = answer;
                         answer3.Image = null;
+                        Points += 8 * multiplier;
                     }
                     if (index == 3)
                     {
                         answer4.Text = answer;
                         answer4.Image = null;
+                        Points += 6 * multiplier;
                     }
                     if (index == 4)
                     {
                         answer5.Text = answer;
                         answer5.Image = null;
+                        Points += 4 * multiplier;
                     }
                     if (index == 5)
                     {
                         answer6.Text = answer;
                         answer6.Image = null;
+                        Points += 3 * multiplier;
                     }
                     if (index == 6)
                     {
                         answer7.Text = answer;
                         answer7.Image = null;
+                        Points += 2 * multiplier;
                     }
                     if (index == 7)
                     {
                         answer8.Text = answer;
                         answer8.Image = null;
+                        Points += 1 * multiplier;
                     }
                     tbAnswer.Text = "";
                 }
                
             }
-           
+            label2.Text = Points.ToString();
         }
-
-        //A counter for the timer
-        int count = 0;
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-           //Every tick increase the timer
-            count++;
-            if (count == 300)  //limit your timer according to the ticks the timer has done 300 ~= 35 seconds
+            if (Time == 0)  //limit your timer according to the ticks the timer has done 300 ~= 35 seconds
             {
                 //reset the timer and load a new question
                 timer1.Stop();
                 answers.Clear();
                 nextQuestion();
-                count = 0;
-                startTime = DateTime.Now;
                 timer1.Start();
+                if (Diff.Equals("Easy"))
+                {
+                    Time = 61;
+                }
+                if (Diff.Equals("Normal"))
+                {
+                    Time = 41;
+                }
+                if (Diff.Equals("Hard"))
+                {
+                    Time = 21;
+                }
             }
+            Time--;
+            questionTime.Text = Time.ToString();
         }
 
         //Resets all the answers so they are not visible to the player, only used when the nextQuestion function is triggered
