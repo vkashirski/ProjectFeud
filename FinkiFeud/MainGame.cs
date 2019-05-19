@@ -17,12 +17,16 @@ namespace FinkiFeud
         public static List<int> questionIndex = new List<int>();
         public static int counter = 0;
         public bool flag = false;
+        bool questionsAcessible = false;
+        public List<String> answers = new List<String>();
         public MainGame()
         {
             InitializeComponent();
+            nextQuestion();
         }
         public void nextQuestion()
         {
+           
             //read questions txt
             String questionsFile = File.ReadAllText("Questions.txt");
 
@@ -52,27 +56,37 @@ namespace FinkiFeud
             //display questions and answers in appropriate places
             if (questionIndex[counter] == 0)
             {
-                textBox4.Text = divided[0];
-                button1.Text = divided[1];
-                button3.Text = divided[2];
-                button7.Text = divided[3];
-                button10.Text = divided[4];
-                button2.Text = divided[5];
-                button6.Text = divided[6];
-                button8.Text = divided[7];
-                button11.Text = divided[8];
+                tbQuestion.Text = divided[0];
+                for (int i = 1; i < divided.Length; i++)
+                {
+                    /*button1.Text = divided[1];
+                    button3.Text = divided[2];
+                    button7.Text = divided[3];
+                    button10.Text = divided[4];
+                    button2.Text = divided[5];
+                    button6.Text = divided[6];
+                    button8.Text = divided[7];
+                    button11.Text = divided[8];*/
+                    answers.Add(divided[i]);
+                }
+                questionsAcessible = true;
             }
             else
             {
-                textBox4.Text = divided[1];
-                button1.Text = divided[2];
-                button3.Text = divided[3];
-                button7.Text = divided[4];
-                button10.Text = divided[5];
-                button2.Text = divided[6];
-                button6.Text = divided[7];
-                button8.Text = divided[8];
-                button11.Text = divided[9];
+                tbQuestion.Text = divided[1];
+                for (int i = 2; i < divided.Length; i++)
+                {
+                    /*button1.Text = divided[1];
+                    button3.Text = divided[2];
+                    button7.Text = divided[3];
+                    button10.Text = divided[4];
+                    button2.Text = divided[5];
+                    button6.Text = divided[6];
+                    button8.Text = divided[7];
+                    button11.Text = divided[8];*/
+                    answers.Add(divided[i]);
+                }
+                questionsAcessible = true;
             }
 
             //counter and reset questions order
@@ -102,7 +116,59 @@ namespace FinkiFeud
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            nextQuestion();
+            String triedAnswer = tbAnswer.Text.Trim();
+            foreach (String answer in answers)
+            {
+                if (answer.Contains(triedAnswer))
+                {
+                    int index = answers.IndexOf(answer);
+                    if (index == 0)
+                    {
+                        answer1.Text = answer;
+                        answer1.Image = null;
+
+                    }
+                    if (index == 1)
+                    {
+                        answer2.Text = answer;
+                        answer2.Image = null;
+
+                    }
+                    if (index == 2)
+                    {
+                        answer3.Text = answer;
+                        answer3.Image = null;
+                    }
+                    if (index == 3)
+                    {
+                        answer4.Text = answer;
+                        answer4.Image = null;
+                    }
+                    if (index == 4)
+                    {
+                        answer5.Text = answer;
+                        answer5.Image = null;
+                    }
+                    if (index == 5)
+                    {
+                        answer6.Text = answer;
+                        answer6.Image = null;
+                    }
+                    if (index == 6)
+                    {
+                        answer7.Text = answer;
+                        answer7.Image = null;
+                    }
+                    if (index == 7)
+                    {
+                        answer8.Text = answer;
+                        answer8.Image = null;
+                    }
+
+                }
+                
+            }
+           
         }
     }
 }

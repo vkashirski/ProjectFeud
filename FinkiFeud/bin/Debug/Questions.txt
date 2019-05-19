@@ -1,4 +1,4 @@
-Which direction has the most students in FINKI?
+Name a bachelor's program in which most students in FINKI are enrolled
 PET
 KNI
 IKI
@@ -8,7 +8,7 @@ KI
 IMB
 KN
 ~
-Which subject do the most students consider favourite in FINKI?
+We asked the students of FINKI which subject is your favourite and they answered:
 Kompjuterski Mrezhi
 Internet Tehnologii
 Vizuelno Programiranje
@@ -18,7 +18,7 @@ Bazi na podatoci
 Mobilni platformi i programiranje
 Veb Dizajn
 ~
-Which subject do most students think is the hardest at FINKI?
+We asked the students of FINKI, which subject do you find the hardest in your studies and they answered:
 Verojatnost i statistika
 Algoritmi i podatochni strukturi
 Diskretna Matematika 2
@@ -28,7 +28,7 @@ Teorija na informacii
 Kalkulus 2
 Veshtachka intelegencija
 ~
-Which brand of laptops do the students of FINKI most preffer?
+Name a brand of a laptop that most students would consider buying:
 ASUS
 Dell
 Lenovo
@@ -48,7 +48,7 @@ How long is the average amount of time (in minutes), a student of FINKI needs to
 2
 5
 ~
-Which College would the students of FINKI attend, if FINKI didn't exist?
+We asked the students of FINKI, which college would you go to if FINKI didn't exist and they answered:
 FEIT
 Elektro
 Arhitektonski
@@ -58,7 +58,7 @@ PMF
 Nikoj
 Medicina
 ~
-How long do the students of FINKI think the new building of FINKI will get finished building (in years)?
+We asked the students of FINKI, how long do you think the building for FINKI will take to be finished and they said:
 Never
 5
 2
