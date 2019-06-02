@@ -63,6 +63,26 @@ namespace FinkiFeud.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _160205104032_key_race_alert_background_full_169 {
+            get {
+                object obj = ResourceManager.GetObject("160205104032-key-race-alert-background-full-169", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20190306_FamilyFeudLive_1929x1327_BACKGROUND_0 {
+            get {
+                object obj = ResourceManager.GetObject("20190306 FamilyFeudLive 1929x1327 BACKGROUND_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap default_avi {
             get {
                 object obj = ResourceManager.GetObject("default_avi", resourceCulture);
@@ -96,6 +116,16 @@ namespace FinkiFeud.Properties {
         internal static System.Drawing.Bitmap QuestionMark {
             get {
                 object obj = ResourceManager.GetObject("QuestionMark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rFamily_Feud_shop_preview {
+            get {
+                object obj = ResourceManager.GetObject("rFamily_Feud_shop_preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
