@@ -64,10 +64,9 @@
             this.questionTime.BackColor = System.Drawing.Color.Transparent;
             this.questionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionTime.ForeColor = System.Drawing.SystemColors.Control;
-            this.questionTime.Location = new System.Drawing.Point(897, 174);
-            this.questionTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.questionTime.Location = new System.Drawing.Point(673, 141);
             this.questionTime.Name = "questionTime";
-            this.questionTime.Size = new System.Drawing.Size(160, 113);
+            this.questionTime.Size = new System.Drawing.Size(127, 91);
             this.questionTime.TabIndex = 0;
             this.questionTime.Text = "00";
             // 
@@ -78,10 +77,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(365, 484);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(274, 393);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 104);
+            this.label2.Size = new System.Drawing.Size(78, 85);
             this.label2.TabIndex = 20;
             this.label2.Text = "0";
             // 
@@ -99,10 +97,9 @@
             this.flowLayoutPanel1.Controls.Add(this.answer8);
             this.flowLayoutPanel1.Controls.Add(this.tbAnswer);
             this.flowLayoutPanel1.Controls.Add(this.btnSubmit);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(660, 480);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(495, 390);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(675, 375);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(506, 305);
             this.flowLayoutPanel1.TabIndex = 23;
             // 
             // answer1
@@ -112,24 +109,23 @@
             this.answer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.answer1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer1.Image = global::FinkiFeud.Properties.Resources.QuestionMark;
-            this.answer1.Location = new System.Drawing.Point(4, 4);
-            this.answer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer1.Location = new System.Drawing.Point(3, 3);
             this.answer1.Name = "answer1";
-            this.answer1.Size = new System.Drawing.Size(327, 65);
+            this.answer1.Size = new System.Drawing.Size(245, 53);
             this.answer1.TabIndex = 0;
             this.answer1.UseVisualStyleBackColor = false;
             // 
             // answer5
             // 
+            this.answer5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.answer5.BackColor = System.Drawing.SystemColors.HotTrack;
             this.answer5.CausesValidation = false;
             this.answer5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer5.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer5.Image = ((System.Drawing.Image)(resources.GetObject("answer5.Image")));
-            this.answer5.Location = new System.Drawing.Point(339, 4);
-            this.answer5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer5.Location = new System.Drawing.Point(254, 3);
             this.answer5.Name = "answer5";
-            this.answer5.Size = new System.Drawing.Size(327, 65);
+            this.answer5.Size = new System.Drawing.Size(245, 53);
             this.answer5.TabIndex = 1;
             this.answer5.UseVisualStyleBackColor = false;
             // 
@@ -140,10 +136,9 @@
             this.answer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer2.Image = ((System.Drawing.Image)(resources.GetObject("answer2.Image")));
-            this.answer2.Location = new System.Drawing.Point(4, 77);
-            this.answer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer2.Location = new System.Drawing.Point(3, 62);
             this.answer2.Name = "answer2";
-            this.answer2.Size = new System.Drawing.Size(327, 65);
+            this.answer2.Size = new System.Drawing.Size(245, 53);
             this.answer2.TabIndex = 2;
             this.answer2.UseVisualStyleBackColor = false;
             // 
@@ -154,10 +149,9 @@
             this.answer6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer6.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer6.Image = ((System.Drawing.Image)(resources.GetObject("answer6.Image")));
-            this.answer6.Location = new System.Drawing.Point(339, 77);
-            this.answer6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer6.Location = new System.Drawing.Point(254, 62);
             this.answer6.Name = "answer6";
-            this.answer6.Size = new System.Drawing.Size(327, 65);
+            this.answer6.Size = new System.Drawing.Size(245, 53);
             this.answer6.TabIndex = 5;
             this.answer6.UseVisualStyleBackColor = false;
             // 
@@ -168,10 +162,9 @@
             this.answer3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer3.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer3.Image = ((System.Drawing.Image)(resources.GetObject("answer3.Image")));
-            this.answer3.Location = new System.Drawing.Point(4, 150);
-            this.answer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer3.Location = new System.Drawing.Point(3, 121);
             this.answer3.Name = "answer3";
-            this.answer3.Size = new System.Drawing.Size(327, 65);
+            this.answer3.Size = new System.Drawing.Size(245, 53);
             this.answer3.TabIndex = 6;
             this.answer3.UseVisualStyleBackColor = false;
             // 
@@ -182,10 +175,9 @@
             this.answer7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer7.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer7.Image = ((System.Drawing.Image)(resources.GetObject("answer7.Image")));
-            this.answer7.Location = new System.Drawing.Point(339, 150);
-            this.answer7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer7.Location = new System.Drawing.Point(254, 121);
             this.answer7.Name = "answer7";
-            this.answer7.Size = new System.Drawing.Size(327, 65);
+            this.answer7.Size = new System.Drawing.Size(245, 53);
             this.answer7.TabIndex = 7;
             this.answer7.UseVisualStyleBackColor = false;
             // 
@@ -196,10 +188,9 @@
             this.answer4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer4.Image = ((System.Drawing.Image)(resources.GetObject("answer4.Image")));
-            this.answer4.Location = new System.Drawing.Point(4, 223);
-            this.answer4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer4.Location = new System.Drawing.Point(3, 180);
             this.answer4.Name = "answer4";
-            this.answer4.Size = new System.Drawing.Size(327, 65);
+            this.answer4.Size = new System.Drawing.Size(245, 53);
             this.answer4.TabIndex = 9;
             this.answer4.UseVisualStyleBackColor = false;
             // 
@@ -210,30 +201,27 @@
             this.answer8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer8.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer8.Image = ((System.Drawing.Image)(resources.GetObject("answer8.Image")));
-            this.answer8.Location = new System.Drawing.Point(339, 223);
-            this.answer8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answer8.Location = new System.Drawing.Point(254, 180);
             this.answer8.Name = "answer8";
-            this.answer8.Size = new System.Drawing.Size(327, 65);
+            this.answer8.Size = new System.Drawing.Size(245, 53);
             this.answer8.TabIndex = 10;
             this.answer8.UseVisualStyleBackColor = false;
             // 
             // tbAnswer
             // 
             this.tbAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAnswer.Location = new System.Drawing.Point(4, 296);
-            this.tbAnswer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAnswer.Location = new System.Drawing.Point(3, 239);
             this.tbAnswer.Name = "tbAnswer";
-            this.tbAnswer.Size = new System.Drawing.Size(571, 74);
+            this.tbAnswer.Size = new System.Drawing.Size(429, 60);
             this.tbAnswer.TabIndex = 11;
             // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.ForestGreen;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(583, 296);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Location = new System.Drawing.Point(438, 239);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(80, 74);
+            this.btnSubmit.Size = new System.Drawing.Size(60, 60);
             this.btnSubmit.TabIndex = 12;
             this.btnSubmit.Text = "TRY";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -245,10 +233,9 @@
             this.textBox2.BackColor = System.Drawing.SystemColors.MenuText;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.textBox2.Location = new System.Drawing.Point(73, 772);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(55, 627);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(540, 83);
+            this.textBox2.Size = new System.Drawing.Size(406, 68);
             this.textBox2.TabIndex = 24;
             this.textBox2.Text = "PLAYER NAME";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -263,10 +250,9 @@
             this.Game_Title.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Game_Title.Location = new System.Drawing.Point(736, 15);
-            this.Game_Title.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Game_Title.Location = new System.Drawing.Point(552, 12);
             this.Game_Title.Name = "Game_Title";
-            this.Game_Title.Size = new System.Drawing.Size(500, 143);
+            this.Game_Title.Size = new System.Drawing.Size(375, 116);
             this.Game_Title.TabIndex = 26;
             this.Game_Title.TabStop = false;
             this.Game_Title.UseVisualStyleBackColor = false;
@@ -277,12 +263,11 @@
             this.tbQuestion.BackColor = System.Drawing.SystemColors.MenuText;
             this.tbQuestion.Font = new System.Drawing.Font("Kristen ITC", 20F);
             this.tbQuestion.ForeColor = System.Drawing.Color.DarkOrange;
-            this.tbQuestion.Location = new System.Drawing.Point(585, 327);
-            this.tbQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbQuestion.Location = new System.Drawing.Point(439, 266);
             this.tbQuestion.Multiline = true;
             this.tbQuestion.Name = "tbQuestion";
             this.tbQuestion.ReadOnly = true;
-            this.tbQuestion.Size = new System.Drawing.Size(816, 144);
+            this.tbQuestion.Size = new System.Drawing.Size(613, 118);
             this.tbQuestion.TabIndex = 27;
             this.tbQuestion.Text = "We asked the students of Finki, how much time did you spend in college and they a" +
     "nswered: ";
@@ -310,10 +295,9 @@
             this.pbPlayerIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPlayerIcon.BackColor = System.Drawing.Color.Transparent;
             this.pbPlayerIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbPlayerIcon.Image")));
-            this.pbPlayerIcon.Location = new System.Drawing.Point(279, 630);
-            this.pbPlayerIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPlayerIcon.Location = new System.Drawing.Point(209, 512);
             this.pbPlayerIcon.Name = "pbPlayerIcon";
-            this.pbPlayerIcon.Size = new System.Drawing.Size(107, 98);
+            this.pbPlayerIcon.Size = new System.Drawing.Size(80, 80);
             this.pbPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlayerIcon.TabIndex = 2;
             this.pbPlayerIcon.TabStop = false;
@@ -325,21 +309,20 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(13, 480);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 390);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 104);
+            this.label1.Size = new System.Drawing.Size(264, 85);
             this.label1.TabIndex = 28;
             this.label1.Text = "Points:";
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1343, 776);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(1007, 630);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 74);
+            this.button1.Size = new System.Drawing.Size(170, 60);
             this.button1.TabIndex = 13;
             this.button1.Text = "SKIP QUESTION";
             this.button1.UseVisualStyleBackColor = false;
@@ -347,12 +330,12 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.DarkRed;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1343, 857);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(1007, 696);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(227, 74);
+            this.button2.Size = new System.Drawing.Size(170, 60);
             this.button2.TabIndex = 29;
             this.button2.Text = "FINISH";
             this.button2.UseVisualStyleBackColor = false;
@@ -361,10 +344,10 @@
             // MainGame
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1924, 944);
+            this.ClientSize = new System.Drawing.Size(1443, 767);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbQuestion);
@@ -375,11 +358,11 @@
             this.Controls.Add(this.pbPlayerIcon);
             this.Controls.Add(this.questionTime);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainGame";
             this.Text = "MainGame";
             this.Load += new System.EventHandler(this.MainGame_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainGame_Paint);
+            this.Resize += new System.EventHandler(this.MainGame_Resize);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerIcon)).EndInit();

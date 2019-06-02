@@ -37,7 +37,10 @@ namespace FinkiFeud
             //The timer initialization
             timer1.Start();
 
-            
+            //Full Screen mode
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+
 
             //current player
             Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
@@ -184,7 +187,10 @@ namespace FinkiFeud
 
         private void MainGame_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.None;
+            //in this case I will show the form in my secondary screen.
+            var screen = Screen.AllScreens.Last();
+            this.Bounds = screen.Bounds;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -324,6 +330,11 @@ namespace FinkiFeud
         private void button2_Click(object sender, EventArgs e)
         {
             gameDone();
+        }
+
+        private void MainGame_Resize(object sender, EventArgs e)
+        {
+            
         }
     }
 }

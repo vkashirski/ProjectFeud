@@ -88,3 +88,13 @@ How many number of classes do most students of FINKI attend per week?
 9
 2
 ~
+How long do the students of FINKI need to pass one subjects?
+One semester
+Two semesters
+Three Semesters
+2 years
+3 years
+4 years
+Forever
+A couple of exams
+~
