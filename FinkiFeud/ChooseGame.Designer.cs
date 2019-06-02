@@ -72,7 +72,7 @@
             this.tbTeam1Player1.Name = "tbTeam1Player1";
             this.tbTeam1Player1.Size = new System.Drawing.Size(132, 22);
             this.tbTeam1Player1.TabIndex = 2;
-            this.tbTeam1Player1.Text = "Player 1";
+            this.tbTeam1Player1.Text = "Unknown";
             // 
             // groupBox1
             // 
@@ -133,6 +133,7 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "View Highscores";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -144,6 +145,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "Add Question";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ChooseGame
             // 

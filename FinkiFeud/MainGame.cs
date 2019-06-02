@@ -18,10 +18,11 @@ namespace FinkiFeud
         public static int counter = 0;
         public bool flag = false;
         public static int Time = 60;
-        public List<Player> players = new List<Player>();
+        public static List<Player> players = new List<Player>();
         public String Diff;
         public int multiplier = 1;
         public int Points = 0;
+        public int flagPoints = 0;
 
         //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
@@ -36,19 +37,7 @@ namespace FinkiFeud
             //The timer initialization
             timer1.Start();
 
-            //create list of players from Players.txt
-            String playersFile = File.ReadAllText("Players.txt");
-            String[] playersAndPoints = playersFile.Split(new string[] { "\n" }, StringSplitOptions.None);
-            String name = "";
-            int points = 0;
-            for (int i = 0; i < playersAndPoints.Length; i++)
-            {
-                String[] player = playersAndPoints[i].Split('-');
-                points = Convert.ToInt32(player[1]);
-                name = player[0];
-                Player p1 = new Player(points, name, "",null);
-                players.Add(p1);
-            }
+            
 
             //current player
             Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
@@ -62,16 +51,16 @@ namespace FinkiFeud
             else if (Diff.Equals("Normal"))
                 multiplier = 2;
             else if (Diff.Equals("Hard"))
-                multiplier = 4;
+                multiplier = 3;
 
             //difficulty time setting
             if (Diff.Equals("Easy"))
             {
-                Time = 61;
+                Time = 41;
             }
             if (Diff.Equals("Normal"))
             {
-                Time = 41;
+                Time = 31;
             }
             if (Diff.Equals("Hard"))
             {
@@ -86,7 +75,7 @@ namespace FinkiFeud
             String points = Points.ToString();
             String playersInfo = File.ReadAllText("Players.txt");
             String playerInfo = name + "-" + points;
-            String final = playersInfo + "\n" + playerInfo;
+            String final = playersInfo + "~" + playerInfo;
 
             //write
             using (StreamWriter sw = File.CreateText("Players.txt"))
@@ -95,6 +84,17 @@ namespace FinkiFeud
             }
 
             //close game
+            timer1.Stop();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Player name:");
+            sb.AppendLine();
+            sb.Append(name);
+            sb.AppendLine();
+            sb.AppendLine();
+            sb.Append("Player points:");
+            sb.AppendLine();
+            sb.Append(points);
+            MessageBox.Show(sb.ToString());
             this.Close();
         }
         public void nextQuestion()
@@ -190,70 +190,82 @@ namespace FinkiFeud
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             String triedAnswer = tbAnswer.Text.Trim();//Contains the answer entered by the user once the button is clicked
-
-
-            //Check if the answer the user has entered is anywhere in the list answers
-            foreach (String answer in answers)
+            if (!(tbAnswer.Text == "/"))
             {
-                //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
-                if (answer.Trim().ToLower() == triedAnswer.ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
+                //Check if the answer the user has entered is anywhere in the list answers
+                foreach (String answer in answers)
                 {
-                    int index = answers.IndexOf(answer);
-                    if (index == 0)
+                    //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
+                    if (answer.Trim().ToLower() == triedAnswer.ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
                     {
-                        answer1.Text = answer;
-                        answer1.Image = null;
-                        Points += 12 * multiplier;
+                        int index = answers.IndexOf(answer);
+                        if (index == 0)
+                        {
+                            answer1.Text = answer;
+                            answer1.Image = null;
+                            Points += 12 * multiplier;
 
-                    }
-                    if (index == 1)
-                    {
-                        answer2.Text = answer;
-                        answer2.Image = null;
-                        Points += 10 * multiplier;
+                        }
+                        if (index == 1)
+                        {
+                            answer2.Text = answer;
+                            answer2.Image = null;
+                            Points += 10 * multiplier;
 
+                        }
+                        if (index == 2)
+                        {
+                            answer3.Text = answer;
+                            answer3.Image = null;
+                            Points += 8 * multiplier;
+                        }
+                        if (index == 3)
+                        {
+                            answer4.Text = answer;
+                            answer4.Image = null;
+                            Points += 6 * multiplier;
+                        }
+                        if (index == 4)
+                        {
+                            answer5.Text = answer;
+                            answer5.Image = null;
+                            Points += 4 * multiplier;
+                        }
+                        if (index == 5)
+                        {
+                            answer6.Text = answer;
+                            answer6.Image = null;
+                            Points += 3 * multiplier;
+                        }
+                        if (index == 6)
+                        {
+                            answer7.Text = answer;
+                            answer7.Image = null;
+                            Points += 2 * multiplier;
+                        }
+                        if (index == 7)
+                        {
+                            answer8.Text = answer;
+                            answer8.Image = null;
+                            Points += 1 * multiplier;
+                        }
+                        tbAnswer.Text = "";
                     }
-                    if (index == 2)
+                    else
                     {
-                        answer3.Text = answer;
-                        answer3.Image = null;
-                        Points += 8 * multiplier;
+                        if (flagPoints == 0)
+                        {
+                            flagPoints = 1;
+                            if(Points > 0)
+                                Points -= 1;
+                        }
                     }
-                    if (index == 3)
-                    {
-                        answer4.Text = answer;
-                        answer4.Image = null;
-                        Points += 6 * multiplier;
-                    }
-                    if (index == 4)
-                    {
-                        answer5.Text = answer;
-                        answer5.Image = null;
-                        Points += 4 * multiplier;
-                    }
-                    if (index == 5)
-                    {
-                        answer6.Text = answer;
-                        answer6.Image = null;
-                        Points += 3 * multiplier;
-                    }
-                    if (index == 6)
-                    {
-                        answer7.Text = answer;
-                        answer7.Image = null;
-                        Points += 2 * multiplier;
-                    }
-                    if (index == 7)
-                    {
-                        answer8.Text = answer;
-                        answer8.Image = null;
-                        Points += 1 * multiplier;
-                    }
-                    tbAnswer.Text = "";
+
+
                 }
-               
+                label2.Text = Points.ToString();
+                flagPoints = 0;
             }
-            label2.Text = Points.ToString();
         }
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -267,16 +279,17 @@ namespace FinkiFeud
                 timer1.Start();
                 if (Diff.Equals("Easy"))
                 {
-                    Time = 61;
+                    Time = 41;
                 }
                 if (Diff.Equals("Normal"))
                 {
-                    Time = 41;
+                    Time = 31;
                 }
                 if (Diff.Equals("Hard"))
                 {
                     Time = 21;
                 }
+                tbAnswer.Text = "";
             }
             Time--;
             questionTime.Text = Time.ToString();
@@ -301,6 +314,16 @@ namespace FinkiFeud
             answer7.Image = Properties.Resources.QuestionMark;
             answer8.Text = "";
             answer8.Image = Properties.Resources.QuestionMark;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Time = 0;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gameDone();
         }
     }
 }
