@@ -180,17 +180,13 @@ namespace FinkiFeud
           
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void MainGame_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
             //in this case I will show the form in my secondary screen.
-            var screen = Screen.AllScreens.Last();
-            this.Bounds = screen.Bounds;
+            //var screen = Screen.AllScreens.Last();
+            //this.Bounds = screen.Bounds;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -332,9 +328,5 @@ namespace FinkiFeud
             gameDone();
         }
 
-        private void MainGame_Resize(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
