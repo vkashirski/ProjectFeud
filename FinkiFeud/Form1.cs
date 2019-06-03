@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace FinkiFeud
 {
+    [Serializable]
     public partial class Form1 : Form
     {
         

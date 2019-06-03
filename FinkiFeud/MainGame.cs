@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,27 +26,49 @@ namespace FinkiFeud
         public int multiplier = 1;
         public int Points = 0;
         public int flagPoints = 0;
-
+        Player currentPlayer;
+        String FileName;
         //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
-
+        SoundPlayer RevealSoundPlayer = new SoundPlayer();
+        SoundPlayer TryAgainSoundPlayer = new SoundPlayer();
+        SoundPlayer WrongSoundPlayer = new SoundPlayer();
         public MainGame()
         {
             InitializeComponent();
-            DoubleBuffered = true;
+            //Resolve Flickering
+            this.DoubleBuffered = true;
             //Load the first question
             nextQuestion();
-
+            FileName = "Untitled";
             //The timer initialization
             timer1.Start();
 
             //Full Screen mode
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
-
+            if (ChooseGame.windowedMode == false)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            //Music and Sound
+            if (ChooseGame.backgroundMusic == true)
+            {
+                Stream Theme = Properties.Resources.TV_Theme_Song;
+                SoundPlayer ThemeSoundPlayer = new SoundPlayer(Theme);
+                ThemeSoundPlayer.Play();
+            }
+            if (ChooseGame.backgroundSound==true)
+            {
+                Stream Reveal = Properties.Resources.CLANG__reveal_answer_on_board;
+                Stream TryAgain = Properties.Resources.Try_Again1;
+                Stream Wrong = Properties.Resources.STRIKE__wrong_answer;
+                RevealSoundPlayer = new SoundPlayer(Reveal);
+                TryAgainSoundPlayer = new SoundPlayer(TryAgain);
+                WrongSoundPlayer = new SoundPlayer(Wrong);
+            }
 
             //current player
-            Player currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
+            currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
             Diff = currentPlayer.difficulty;
             textBox2.Text = currentPlayer.Name;
             pbPlayerIcon.Image = currentPlayer.PlayerIcon;
@@ -70,7 +95,28 @@ namespace FinkiFeud
                 Time = 21;
             }
         }
-
+        private void saveFile()
+        {
+            if (FileName == "Untitled")
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Circles doc file (*.crl)|*.crl";
+                saveFileDialog.Title = "Save circles doc";
+                saveFileDialog.FileName = FileName;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = saveFileDialog.FileName;
+                }
+            }
+            if (FileName != null)
+            {
+                using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fileStream, currentPlayer);
+                }
+            }
+        }
         public void gameDone()
         {
             //get new info
@@ -175,11 +221,6 @@ namespace FinkiFeud
             }
         }
 
-        private void MainGame_Paint(object sender, PaintEventArgs e)
-        {
-          
-        }
-
 
         private void MainGame_Load(object sender, EventArgs e)
         {
@@ -187,83 +228,104 @@ namespace FinkiFeud
             //in this case I will show the form in my secondary screen.
             //var screen = Screen.AllScreens.Last();
             //this.Bounds = screen.Bounds;
+            SplashScreen splash = new SplashScreen();
+            splash.ShowDialog();
+            
+            
         }
-
+        String lastCorrectTriedAnswer = null;
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            bool noAnswerFound = true;
             String triedAnswer = tbAnswer.Text.Trim();//Contains the answer entered by the user once the button is clicked
             if (!(tbAnswer.Text == "/"))
             {
-                //Check if the answer the user has entered is anywhere in the list answers
-                foreach (String answer in answers)
+                if (triedAnswer.ToLower() == lastCorrectTriedAnswer)
                 {
-                    //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
-                    if (answer.Trim().ToLower() == triedAnswer.ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
+                    tbAnswer.Text = "";
+                    TryAgainSoundPlayer.Play();
+                }
+                else
+                {
+                    //Check if the answer the user has entered is anywhere in the list answers
+                    foreach (String answer in answers)
                     {
-                        int index = answers.IndexOf(answer);
-                        if (index == 0)
-                        {
-                            answer1.Text = answer;
-                            answer1.Image = null;
-                            Points += 12 * multiplier;
 
-                        }
-                        if (index == 1)
-                        {
-                            answer2.Text = answer;
-                            answer2.Image = null;
-                            Points += 10 * multiplier;
 
-                        }
-                        if (index == 2)
+
+                        //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
+                        if (triedAnswer.ToLower() == answer.Trim().ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
                         {
-                            answer3.Text = answer;
-                            answer3.Image = null;
-                            Points += 8 * multiplier;
+                            RevealSoundPlayer.Play();
+                            noAnswerFound = false;
+                            int index = answers.IndexOf(answer);
+                            if (index == 0)
+                            {
+                                answer1.Text = answer;
+                                answer1.Image = null;
+                                Points += 12 * multiplier;
+
+                            }
+                            if (index == 1)
+                            {
+                                answer2.Text = answer;
+                                answer2.Image = null;
+                                Points += 10 * multiplier;
+
+                            }
+                            if (index == 2)
+                            {
+                                answer3.Text = answer;
+                                answer3.Image = null;
+                                Points += 8 * multiplier;
+                            }
+                            if (index == 3)
+                            {
+                                answer4.Text = answer;
+                                answer4.Image = null;
+                                Points += 6 * multiplier;
+                            }
+                            if (index == 4)
+                            {
+                                answer5.Text = answer;
+                                answer5.Image = null;
+                                Points += 4 * multiplier;
+                            }
+                            if (index == 5)
+                            {
+                                answer6.Text = answer;
+                                answer6.Image = null;
+                                Points += 3 * multiplier;
+                            }
+                            if (index == 6)
+                            {
+                                answer7.Text = answer;
+                                answer7.Image = null;
+                                Points += 2 * multiplier;
+                            }
+                            if (index == 7)
+                            {
+                                answer8.Text = answer;
+                                answer8.Image = null;
+                                Points += 1 * multiplier;
+                            }
+                            tbAnswer.Text = "";
+                            lastCorrectTriedAnswer = answer.Trim().ToLower();
                         }
-                        if (index == 3)
-                        {
-                            answer4.Text = answer;
-                            answer4.Image = null;
-                            Points += 6 * multiplier;
-                        }
-                        if (index == 4)
-                        {
-                            answer5.Text = answer;
-                            answer5.Image = null;
-                            Points += 4 * multiplier;
-                        }
-                        if (index == 5)
-                        {
-                            answer6.Text = answer;
-                            answer6.Image = null;
-                            Points += 3 * multiplier;
-                        }
-                        if (index == 6)
-                        {
-                            answer7.Text = answer;
-                            answer7.Image = null;
-                            Points += 2 * multiplier;
-                        }
-                        if (index == 7)
-                        {
-                            answer8.Text = answer;
-                            answer8.Image = null;
-                            Points += 1 * multiplier;
-                        }
-                        tbAnswer.Text = "";
+
+
                     }
-                    else
-                    {
+                    if(noAnswerFound)
+                        {
+                        WrongSoundPlayer.Play();
+                        tbAnswer.Text = "";
                         if (flagPoints == 0)
                         {
                             flagPoints = 1;
-                            if(Points > 0)
+                            if (Points > 0)
                                 Points -= 1;
                         }
                     }
-
-
                 }
                 label2.Text = Points.ToString();
                 flagPoints = 0;
@@ -295,6 +357,14 @@ namespace FinkiFeud
             }
             Time--;
             questionTime.Text = Time.ToString();
+            if (Time < 10)
+            {
+                questionTime.ForeColor = Color.Red;
+            }
+            else
+            {
+                questionTime.ForeColor = Color.White;
+            }
         }
 
         //Resets all the answers so they are not visible to the player, only used when the nextQuestion function is triggered
@@ -328,5 +398,14 @@ namespace FinkiFeud
             gameDone();
         }
 
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            saveFile();
+        }
+
+        private void MainGame_Resize(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

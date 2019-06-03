@@ -69,14 +69,14 @@ Never
 10
 ~
 How do most students of FINKI get to campus?
-Pesh
-Avtobus
-Avtomobil
-Velosiped
-Taksi
-Voz
-Helikopter
-Avion
+Walking
+Bus
+Car
+Bike
+Taxi
+Train
+Helicopter
+Airplane
 ~
 How many number of classes do most students of FINKI attend per week?
 10

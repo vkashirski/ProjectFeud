@@ -18,20 +18,17 @@ namespace FinkiFeud
             InitializeComponent();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbQuestion.Text))
+            if (string.IsNullOrEmpty(tbQuestion.Text) || string.IsNullOrEmpty(tbAnswer1.Text)|| string.IsNullOrEmpty(tbAnswer2.Text)
+                || string.IsNullOrEmpty(tbAnswer3.Text) || string.IsNullOrEmpty(tbAnswer4.Text) || string.IsNullOrEmpty(tbAnswer5.Text) || string.IsNullOrEmpty(tbAnswer6.Text) || string.IsNullOrEmpty(tbAnswer7.Text) || string.IsNullOrEmpty(tbAnswer8.Text))
             {
-                errorQuestion.SetError(tbQuestion, "No Question Entered.");
+                errorQuestion.SetError(tbQuestion, "You must enter all fields!");
             }
             //save question to Questions.txt
             else
             {
+                errorQuestion.SetError(tbQuestion, null);
                 String question = tbQuestion.Text;
                 String answer1 = tbAnswer1.Text;
                 String answer2 = tbAnswer2.Text;
@@ -80,22 +77,18 @@ namespace FinkiFeud
             }
         }
 
-        private void tbQuestion_Validating(object sender, CancelEventArgs e)
-        {
-            
-        }
 
         private void btClear_Click(object sender, EventArgs e)
         {
             tbQuestion.Text = "";
-            tbAnswer1.Text = "/";
-            tbAnswer2.Text = "/";
-            tbAnswer3.Text = "/";
-            tbAnswer4.Text = "/";
-            tbAnswer5.Text = "/";
-            tbAnswer6.Text = "/";
-            tbAnswer7.Text = "/";
-            tbAnswer8.Text = "/";
+            tbAnswer1.Text = "";
+            tbAnswer2.Text = "";
+            tbAnswer3.Text = "";
+            tbAnswer4.Text = "";
+            tbAnswer5.Text = "";
+            tbAnswer6.Text = "";
+            tbAnswer7.Text = "";
+            tbAnswer8.Text = "";
         }
     }
 }

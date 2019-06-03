@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinkiFeud
 {
+    [Serializable]
     public class Player
     {
         public int Points { get; set; }
@@ -20,6 +21,10 @@ namespace FinkiFeud
             this.difficulty = difficulty;
             PlayerIcon = playerIcon;
         }
-       
+
+        public override string ToString()
+        {
+            return string.Format("{0} : {1}", Name, Points);
+        }
     }
 }
