@@ -76,6 +76,13 @@
     <Compile Include="MainGame.Designer.cs">
       <DependentUpon>MainGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="MazeFinale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MazeFinale.Designer.cs">
+      <DependentUpon>MazeFinale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MazePlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerDoc.cs" />
     <Compile Include="Program.cs" />
@@ -100,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainGame.resx">
       <DependentUpon>MainGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MazeFinale.resx">
+      <DependentUpon>MazeFinale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

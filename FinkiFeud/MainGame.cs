@@ -412,7 +412,9 @@ namespace FinkiFeud
 
         private void button2_Click(object sender, EventArgs e)
         {
-            gameDone();
+            //gameDone();
+            MazeFinale mazeGame = new MazeFinale();
+            mazeGame.Show();
         }
 
         private void saveToolStripButton_Click(object sender, EventArgs e)

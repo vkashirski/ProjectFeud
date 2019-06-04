@@ -26,3 +26,4 @@ C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.AddQuestions
 C:\Users\Vasil\source\repos\ProjectFeud-master\FinkiFeud\obj\Debug\FinkiFeud.AddQuestions.resources
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.HighScores.resources
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.SplashScreen.resources
+C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.MazeFinale.resources
