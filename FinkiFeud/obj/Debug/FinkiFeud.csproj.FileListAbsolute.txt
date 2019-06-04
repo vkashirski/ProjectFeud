@@ -26,3 +26,18 @@ C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.AddQuestions
 C:\Users\Vasil\source\repos\ProjectFeud-master\FinkiFeud\obj\Debug\FinkiFeud.AddQuestions.resources
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.HighScores.resources
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.SplashScreen.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\bin\Debug\FinkiFeud.exe.config
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\bin\Debug\FinkiFeud.exe
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\bin\Debug\FinkiFeud.pdb
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.csprojAssemblyReference.cache
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.AddQuestions.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.ChooseGame.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.Form1.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.HighScores.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.MainGame.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.Properties.Resources.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.SplashScreen.resources
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.csproj.GenerateResource.cache
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.csproj.CoreCompileInputs.cache
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.exe
+C:\Users\Vasil\Desktop\New folder (2)\FinkiFeud\obj\Debug\FinkiFeud.pdb
