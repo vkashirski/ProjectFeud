@@ -425,36 +425,58 @@ namespace FinkiFeud
         {
             saveFile();
         }
-
-        private void MainGame_Resize(object sender, EventArgs e)
+        String saveQuestion = null;
+        public void Pause()
         {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (pauseFlag == false)
-            {
                 timer1.Stop();
                 tbAnswer.ReadOnly = true;
                 btnSubmit.Enabled = false;
                 button1.Enabled = false;
-                tbQuestion.Visible = false;
+                saveQuestion = tbQuestion.Text;
+                tbQuestion.Text = "";
                 button3.Text = "CONTINUE";
-                pauseFlag = true;
-            }
-            else if(pauseFlag == true)
-            {
-                timer1.Start();
-                tbAnswer.ReadOnly = false;
-                btnSubmit.Enabled = true;
-                button1.Enabled = true;
-                tbQuestion.Visible = true;
-                button3.Text = "PAUSE";
-                pauseFlag = false;
-            }
+                pauseFlag = true;            
         }
-
+        public void Unpause()
+        {
+            timer1.Start();
+            tbAnswer.ReadOnly = false;
+            btnSubmit.Enabled = true;
+            button1.Enabled = true;
+            tbQuestion.Text = saveQuestion;
+            button3.Text = "PAUSE";
+            pauseFlag = false;
+        }
+        bool button3Clicked = false;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3Clicked = true;
+            if (!pauseFlag)
+            {
+                Pause();
+            }
+            else
+            {
+                Unpause();
+            }
+            
+        }
+        private void MainGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.P && button3Clicked || e.KeyCode == Keys.P && !button3Clicked)
+            {
+                if (!pauseFlag)
+                {
+                    Pause();
+                }
+                else
+                {
+                    Unpause();
+                    
+                }
+            }
+            Invalidate();
+        }
         private void MainGame_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
@@ -466,5 +488,6 @@ namespace FinkiFeud
                 timer1.Start();
             }
         }
+
     }
 }
