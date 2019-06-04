@@ -39,6 +39,7 @@
             this.dataGridHighscores = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHighscores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Location = new System.Drawing.Point(59, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 26);
             this.label1.TabIndex = 0;
@@ -80,7 +81,8 @@
             this.dataGridHighscores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHighscores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.CornflowerBlue;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,7 +110,7 @@
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.MidnightBlue;
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
             this.dataGridHighscores.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridHighscores.Size = new System.Drawing.Size(253, 283);
+            this.dataGridHighscores.Size = new System.Drawing.Size(353, 283);
             this.dataGridHighscores.TabIndex = 0;
             // 
             // Column1
@@ -130,13 +132,19 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Difficulty";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // HighScores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_169;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(277, 328);
+            this.ClientSize = new System.Drawing.Size(377, 328);
             this.Controls.Add(this.dataGridHighscores);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -157,5 +165,6 @@
         public System.Windows.Forms.DataGridView dataGridHighscores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

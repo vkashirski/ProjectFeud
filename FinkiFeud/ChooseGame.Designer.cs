@@ -268,7 +268,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChooseGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseGame";
+            this.Text = "Choose your game settings";
             this.Load += new System.EventHandler(this.ChooseGame_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

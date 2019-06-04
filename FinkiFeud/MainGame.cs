@@ -35,12 +35,20 @@ namespace FinkiFeud
         SoundPlayer WrongSoundPlayer = new SoundPlayer();
         public MainGame()
         {
+            //Show a loading Screen before starting the game
+            SplashScreen splash = new SplashScreen();
+            splash.ShowDialog();
+
+            //Initialize the Component
             InitializeComponent();
+
             //Resolve Flickering
             this.DoubleBuffered = true;
+
             //Load the first question
             nextQuestion();
             FileName = "Untitled";
+
             //The timer initialization
             timer1.Start();
 
@@ -122,8 +130,9 @@ namespace FinkiFeud
             //get new info
             String name = ChooseGame.player.Name;
             String points = Points.ToString();
+            String difficulty = ChooseGame.player.difficulty;
             String playersInfo = File.ReadAllText("Players.txt");
-            String playerInfo = name + "-" + points;
+            String playerInfo = name + "-" + points+"-"+ difficulty;
             String final = playersInfo + "~" + playerInfo;
 
             //write
@@ -228,8 +237,7 @@ namespace FinkiFeud
             //in this case I will show the form in my secondary screen.
             //var screen = Screen.AllScreens.Last();
             //this.Bounds = screen.Bounds;
-            SplashScreen splash = new SplashScreen();
-            splash.ShowDialog();
+         
             
             
         }
@@ -243,7 +251,10 @@ namespace FinkiFeud
                 if (triedAnswer.ToLower() == lastCorrectTriedAnswer)
                 {
                     tbAnswer.Text = "";
-                    TryAgainSoundPlayer.Play();
+                    if (TryAgainSoundPlayer.IsLoadCompleted == true)
+                    {
+                        TryAgainSoundPlayer.Play();
+                    }
                 }
                 else
                 {
@@ -256,7 +267,10 @@ namespace FinkiFeud
                         //If the answer is anywhere in the list find the index of where the answer is in the list and place it in the appropriate field in the form
                         if (triedAnswer.ToLower() == answer.Trim().ToLower()) //smeniv od .Contains vo .Equals, posho primer ako napishesh 5, ti dava odgovor i 5 i 50.
                         {
-                            RevealSoundPlayer.Play();
+                            if (RevealSoundPlayer.IsLoadCompleted == true)
+                            {
+                                RevealSoundPlayer.Play();
+                            }
                             noAnswerFound = false;
                             int index = answers.IndexOf(answer);
                             if (index == 0)
@@ -317,7 +331,10 @@ namespace FinkiFeud
                     }
                     if(noAnswerFound)
                         {
-                        WrongSoundPlayer.Play();
+                        if (WrongSoundPlayer.IsLoadCompleted == true)
+                        {
+                            WrongSoundPlayer.Play();
+                        }
                         tbAnswer.Text = "";
                         if (flagPoints == 0)
                         {

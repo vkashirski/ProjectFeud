@@ -16,8 +16,9 @@ namespace FinkiFeud
         public SplashScreen()
         {
             InitializeComponent();
-            timer1.Interval = 2000;
+            timer1.Interval = 3000;
             timer1.Start();
+            
         }
 
         private void SplashScreen_Load(object sender, EventArgs e)

@@ -435,11 +435,12 @@ namespace FinkiFeud
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainGame";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainGame";
+            this.Text = "FinkiFued";
             this.Load += new System.EventHandler(this.MainGame_Load);
             this.Resize += new System.EventHandler(this.MainGame_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerIcon)).EndInit();

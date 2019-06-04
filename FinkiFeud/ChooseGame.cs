@@ -40,7 +40,8 @@ namespace FinkiFeud
                     String name = info[0];
                     name = Regex.Replace(name, @"\t|\n|\r", "");
                     int points = Convert.ToInt32(info[1]);
-                    Player p1 = new Player(points, name, null, null);
+                    String difficulty = info[2];
+                    Player p1 = new Player(points, name, difficulty, null);
                     MainGame.players.Add(p1);
                 }
             }
@@ -102,7 +103,7 @@ namespace FinkiFeud
                     DataGridViewRow row = (DataGridViewRow)highScores.dataGridHighscores.Rows[0].Clone();
                     row.Cells[0].Value = p.Name;
                     row.Cells[1].Value = p.Points;
-              
+                    row.Cells[2].Value = p.difficulty;
                     row.HeaderCell.Value = String.Format("{0}", count+1);
                     highScores.dataGridHighscores.Rows.Add(row);
                     count++;

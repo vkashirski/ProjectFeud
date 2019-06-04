@@ -45,6 +45,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "PlayerName";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.UseWaitCursor = true;
             // 
             // timer1
             // 
@@ -61,6 +62,7 @@
             this.label4.Size = new System.Drawing.Size(799, 137);
             this.label4.TabIndex = 3;
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.UseWaitCursor = true;
             // 
             // SplashScreen
             // 
@@ -74,6 +76,7 @@
             this.Name = "SplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashScreen";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.SplashScreen_Load);
             this.ResumeLayout(false);
 
