@@ -18,7 +18,7 @@ namespace FinkiFeud
         public void Draw(Graphics g)
         {
            
-            g.DrawImage(PlayerIcon,Location,new Rectangle(Location.X,Location.Y,108,108),new GraphicsUnit());
+            g.DrawImage(PlayerIcon,Location);
         }
 
         public void moveUp(int l,int t, int w, int h)

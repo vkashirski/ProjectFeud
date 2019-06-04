@@ -32,6 +32,8 @@ namespace FinkiFeud
         public Boolean pauseFlag = false;
         //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
+
+        //SoundPlayers
         SoundPlayer RevealSoundPlayer = new SoundPlayer();
         SoundPlayer TryAgainSoundPlayer = new SoundPlayer();
         SoundPlayer WrongSoundPlayer = new SoundPlayer();
@@ -456,18 +458,12 @@ namespace FinkiFeud
         private void MainGame_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
-            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exiting program...",
-                MessageBoxButtons.YesNo, 
-                MessageBoxIcon.Question); 
-            if (result == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to exit?", "Exiting program...",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.No)
             {
-                e.Cancel = false;
-                Application.Exit();
-            }
-            else if(result == DialogResult.No)
-            {
-                timer1.Start();
                 e.Cancel = true;
+                timer1.Start();
             }
         }
     }
