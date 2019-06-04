@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Vasil-50-Hard~Simona-51-Hard~Mony-48-Normal~Unknown-0-Easy
+=======
+Vasil-50-Hard~Simona-51-Hard~Mony-48-Normal~Vasilij-0-Normal
+>>>>>>> b4c0a208ca091e4f13b3a624865670059ab565b4

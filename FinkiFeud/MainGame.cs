@@ -28,6 +28,8 @@ namespace FinkiFeud
         public int flagPoints = 0;
         Player currentPlayer;
         String FileName;
+        //pause/continue button 
+        public Boolean pauseFlag = false;
         //This list will contain the answers of the questions
         public List<String> answers = new List<String>();
         SoundPlayer RevealSoundPlayer = new SoundPlayer();
@@ -425,6 +427,48 @@ namespace FinkiFeud
         private void MainGame_Resize(object sender, EventArgs e)
         {
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (pauseFlag == false)
+            {
+                timer1.Stop();
+                tbAnswer.ReadOnly = true;
+                btnSubmit.Enabled = false;
+                button1.Enabled = false;
+                tbQuestion.Visible = false;
+                button3.Text = "CONTINUE";
+                pauseFlag = true;
+            }
+            else if(pauseFlag == true)
+            {
+                timer1.Start();
+                tbAnswer.ReadOnly = false;
+                btnSubmit.Enabled = true;
+                button1.Enabled = true;
+                tbQuestion.Visible = true;
+                button3.Text = "PAUSE";
+                pauseFlag = false;
+            }
+        }
+
+        private void MainGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exiting program...",
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question); 
+            if (result == DialogResult.Yes)
+            {
+                e.Cancel = false;
+                Application.Exit();
+            }
+            else if(result == DialogResult.No)
+            {
+                timer1.Start();
+                e.Cancel = true;
+            }
         }
     }
 }
