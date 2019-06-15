@@ -41,7 +41,7 @@ namespace FinkiFeud
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGame));
             this.questionTime = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbPoints = new System.Windows.Forms.Label();
             this.answer1 = new System.Windows.Forms.Button();
             this.answer5 = new System.Windows.Forms.Button();
             this.answer2 = new System.Windows.Forms.Button();
@@ -57,10 +57,11 @@ namespace FinkiFeud
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pbPlayerIcon = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSkip = new System.Windows.Forms.Button();
+            this.btnFinish = new System.Windows.Forms.Button();
             this.tbQuestion = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.Button();
+            this.tbPlayerName = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,25 +71,25 @@ namespace FinkiFeud
             this.questionTime.BackColor = System.Drawing.Color.Transparent;
             this.questionTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionTime.ForeColor = System.Drawing.SystemColors.Control;
-            this.questionTime.Location = new System.Drawing.Point(608, 141);
+            this.questionTime.Location = new System.Drawing.Point(580, 141);
             this.questionTime.Name = "questionTime";
             this.questionTime.Size = new System.Drawing.Size(127, 91);
             this.questionTime.TabIndex = 0;
             this.questionTime.Text = "40";
             this.questionTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lbPoints
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(56, 238);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 85);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "0";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbPoints.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbPoints.BackColor = System.Drawing.Color.Transparent;
+            this.lbPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lbPoints.Location = new System.Drawing.Point(35, 339);
+            this.lbPoints.Name = "lbPoints";
+            this.lbPoints.Size = new System.Drawing.Size(220, 85);
+            this.lbPoints.TabIndex = 20;
+            this.lbPoints.Text = "0";
+            this.lbPoints.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // answer1
             // 
@@ -106,7 +107,7 @@ namespace FinkiFeud
             this.answer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.answer1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer1.Image = ((System.Drawing.Image)(resources.GetObject("answer1.Image")));
-            this.answer1.Location = new System.Drawing.Point(314, 329);
+            this.answer1.Location = new System.Drawing.Point(293, 430);
             this.answer1.Name = "answer1";
             this.answer1.Size = new System.Drawing.Size(356, 58);
             this.answer1.TabIndex = 0;
@@ -128,7 +129,7 @@ namespace FinkiFeud
             this.answer5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer5.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer5.Image = ((System.Drawing.Image)(resources.GetObject("answer5.Image")));
-            this.answer5.Location = new System.Drawing.Point(676, 329);
+            this.answer5.Location = new System.Drawing.Point(655, 430);
             this.answer5.Name = "answer5";
             this.answer5.Size = new System.Drawing.Size(355, 58);
             this.answer5.TabIndex = 1;
@@ -150,7 +151,7 @@ namespace FinkiFeud
             this.answer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer2.Image = ((System.Drawing.Image)(resources.GetObject("answer2.Image")));
-            this.answer2.Location = new System.Drawing.Point(314, 393);
+            this.answer2.Location = new System.Drawing.Point(293, 494);
             this.answer2.Name = "answer2";
             this.answer2.Size = new System.Drawing.Size(356, 58);
             this.answer2.TabIndex = 2;
@@ -172,7 +173,7 @@ namespace FinkiFeud
             this.answer6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer6.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer6.Image = ((System.Drawing.Image)(resources.GetObject("answer6.Image")));
-            this.answer6.Location = new System.Drawing.Point(676, 393);
+            this.answer6.Location = new System.Drawing.Point(655, 494);
             this.answer6.Name = "answer6";
             this.answer6.Size = new System.Drawing.Size(355, 58);
             this.answer6.TabIndex = 5;
@@ -194,7 +195,7 @@ namespace FinkiFeud
             this.answer3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer3.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer3.Image = ((System.Drawing.Image)(resources.GetObject("answer3.Image")));
-            this.answer3.Location = new System.Drawing.Point(314, 457);
+            this.answer3.Location = new System.Drawing.Point(293, 558);
             this.answer3.Name = "answer3";
             this.answer3.Size = new System.Drawing.Size(356, 58);
             this.answer3.TabIndex = 6;
@@ -216,7 +217,7 @@ namespace FinkiFeud
             this.answer7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer7.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer7.Image = ((System.Drawing.Image)(resources.GetObject("answer7.Image")));
-            this.answer7.Location = new System.Drawing.Point(676, 457);
+            this.answer7.Location = new System.Drawing.Point(655, 558);
             this.answer7.Name = "answer7";
             this.answer7.Size = new System.Drawing.Size(355, 58);
             this.answer7.TabIndex = 7;
@@ -238,7 +239,7 @@ namespace FinkiFeud
             this.answer4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer4.Image = ((System.Drawing.Image)(resources.GetObject("answer4.Image")));
-            this.answer4.Location = new System.Drawing.Point(314, 523);
+            this.answer4.Location = new System.Drawing.Point(293, 624);
             this.answer4.Name = "answer4";
             this.answer4.Size = new System.Drawing.Size(356, 58);
             this.answer4.TabIndex = 9;
@@ -260,7 +261,7 @@ namespace FinkiFeud
             this.answer8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.answer8.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.answer8.Image = ((System.Drawing.Image)(resources.GetObject("answer8.Image")));
-            this.answer8.Location = new System.Drawing.Point(676, 523);
+            this.answer8.Location = new System.Drawing.Point(655, 624);
             this.answer8.Name = "answer8";
             this.answer8.Size = new System.Drawing.Size(355, 58);
             this.answer8.TabIndex = 10;
@@ -270,7 +271,7 @@ namespace FinkiFeud
             // 
             this.tbAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAnswer.Location = new System.Drawing.Point(314, 587);
+            this.tbAnswer.Location = new System.Drawing.Point(293, 688);
             this.tbAnswer.Name = "tbAnswer";
             this.tbAnswer.Size = new System.Drawing.Size(532, 60);
             this.tbAnswer.TabIndex = 0;
@@ -284,7 +285,7 @@ namespace FinkiFeud
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSubmit.Font = new System.Drawing.Font("Kristen ITC", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnSubmit.Location = new System.Drawing.Point(852, 587);
+            this.btnSubmit.Location = new System.Drawing.Point(831, 688);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(179, 60);
             this.btnSubmit.TabIndex = 1;
@@ -297,16 +298,15 @@ namespace FinkiFeud
             this.Game_Title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Game_Title.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Game_Title.BackColor = System.Drawing.Color.Transparent;
-            this.Game_Title.BackgroundImage = global::FinkiFeud.Properties.Resources.FinkiFeud;
             this.Game_Title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Game_Title.FlatAppearance.BorderSize = 0;
             this.Game_Title.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Game_Title.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Game_Title.Location = new System.Drawing.Point(414, 12);
+            this.Game_Title.Image = global::FinkiFeud.Properties.Resources.FinkiFeud;
+            this.Game_Title.Location = new System.Drawing.Point(12, 12);
             this.Game_Title.Name = "Game_Title";
-            this.Game_Title.Size = new System.Drawing.Size(511, 126);
+            this.Game_Title.Size = new System.Drawing.Size(1260, 126);
             this.Game_Title.TabIndex = 26;
             this.Game_Title.TabStop = false;
             this.Game_Title.UseVisualStyleBackColor = false;
@@ -333,45 +333,45 @@ namespace FinkiFeud
             this.pbPlayerIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbPlayerIcon.BackColor = System.Drawing.Color.Transparent;
             this.pbPlayerIcon.Image = global::FinkiFeud.Properties.Resources.avatar_generic;
-            this.pbPlayerIcon.Location = new System.Drawing.Point(56, 329);
+            this.pbPlayerIcon.Location = new System.Drawing.Point(35, 430);
             this.pbPlayerIcon.Name = "pbPlayerIcon";
             this.pbPlayerIcon.Size = new System.Drawing.Size(220, 250);
             this.pbPlayerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlayerIcon.TabIndex = 2;
             this.pbPlayerIcon.TabStop = false;
             // 
-            // button1
+            // btnSkip
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_169;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(1067, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 83);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "SKIP QUESTION";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSkip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSkip.BackColor = System.Drawing.Color.DarkGray;
+            this.btnSkip.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_169;
+            this.btnSkip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSkip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSkip.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSkip.Location = new System.Drawing.Point(1079, 296);
+            this.btnSkip.Name = "btnSkip";
+            this.btnSkip.Size = new System.Drawing.Size(170, 83);
+            this.btnSkip.TabIndex = 13;
+            this.btnSkip.Text = "SKIP QUESTION";
+            this.btnSkip.UseVisualStyleBackColor = false;
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
             // 
-            // button2
+            // btnFinish
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_1691;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(1067, 587);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 60);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "FINISH";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnFinish.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnFinish.BackColor = System.Drawing.Color.Red;
+            this.btnFinish.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_1691;
+            this.btnFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFinish.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinish.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnFinish.Location = new System.Drawing.Point(1079, 688);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(170, 60);
+            this.btnFinish.TabIndex = 29;
+            this.btnFinish.Text = "FINISH";
+            this.btnFinish.UseVisualStyleBackColor = false;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // tbQuestion
             // 
@@ -381,31 +381,47 @@ namespace FinkiFeud
             this.tbQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tbQuestion.Font = new System.Drawing.Font("Kristen ITC", 18F);
             this.tbQuestion.ForeColor = System.Drawing.Color.DarkOrange;
-            this.tbQuestion.Location = new System.Drawing.Point(314, 240);
+            this.tbQuestion.Location = new System.Drawing.Point(293, 248);
             this.tbQuestion.Name = "tbQuestion";
-            this.tbQuestion.Size = new System.Drawing.Size(717, 83);
+            this.tbQuestion.Size = new System.Drawing.Size(717, 176);
             this.tbQuestion.TabIndex = 32;
             this.tbQuestion.Text = "We asked the students of Finki, how much time did you spend in college and they a" +
     "nswered: ";
             this.tbQuestion.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // tbPlayerName
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.BackColor = System.Drawing.Color.Transparent;
-            this.textBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.textBox2.FlatAppearance.BorderSize = 0;
-            this.textBox2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.textBox2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.textBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.textBox2.Location = new System.Drawing.Point(27, 585);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 62);
-            this.textBox2.TabIndex = 33;
-            this.textBox2.Text = "PlayerName";
-            this.textBox2.UseVisualStyleBackColor = true;
+            this.tbPlayerName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.tbPlayerName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tbPlayerName.FlatAppearance.BorderSize = 0;
+            this.tbPlayerName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.tbPlayerName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tbPlayerName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tbPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPlayerName.ForeColor = System.Drawing.Color.DarkOrange;
+            this.tbPlayerName.Location = new System.Drawing.Point(6, 686);
+            this.tbPlayerName.Name = "tbPlayerName";
+            this.tbPlayerName.Size = new System.Drawing.Size(281, 62);
+            this.tbPlayerName.TabIndex = 33;
+            this.tbPlayerName.Text = "PlayerName";
+            this.tbPlayerName.UseVisualStyleBackColor = true;
+            // 
+            // btnPause
+            // 
+            this.btnPause.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPause.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.ForeColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPause.Location = new System.Drawing.Point(1100, 538);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(123, 38);
+            this.btnPause.TabIndex = 34;
+            this.btnPause.Text = "PAUSE";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // MainGame
             // 
@@ -414,11 +430,12 @@ namespace FinkiFeud
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1284, 659);
+            this.ClientSize = new System.Drawing.Size(1284, 761);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.answer8);
             this.Controls.Add(this.answer4);
             this.Controls.Add(this.answer1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPlayerName);
             this.Controls.Add(this.answer2);
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.answer7);
@@ -427,12 +444,12 @@ namespace FinkiFeud
             this.Controls.Add(this.answer5);
             this.Controls.Add(this.answer6);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.Game_Title);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbPoints);
             this.Controls.Add(this.pbPlayerIcon);
             this.Controls.Add(this.questionTime);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSkip);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -441,8 +458,7 @@ namespace FinkiFeud
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FinkiFued";
-            this.Load += new System.EventHandler(this.MainGame_Load);
-            this.Resize += new System.EventHandler(this.MainGame_Resize);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainGame_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayerIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -452,7 +468,7 @@ namespace FinkiFeud
         #endregion
 
         private System.Windows.Forms.Label questionTime;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbPoints;
         private System.Windows.Forms.Button answer5;
         private System.Windows.Forms.Button answer2;
         private System.Windows.Forms.Button answer3;
@@ -468,9 +484,10 @@ namespace FinkiFeud
         private System.Windows.Forms.Button answer6;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pbPlayerIcon;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSkip;
+        private System.Windows.Forms.Button btnFinish;
         private System.Windows.Forms.Button tbQuestion;
-        private System.Windows.Forms.Button textBox2;
+        private System.Windows.Forms.Button tbPlayerName;
+        private Button btnPause;
     }
 }

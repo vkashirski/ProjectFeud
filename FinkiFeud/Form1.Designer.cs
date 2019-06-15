@@ -77,15 +77,15 @@
             // 
             this.Game_Title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Game_Title.BackColor = System.Drawing.Color.Transparent;
-            this.Game_Title.BackgroundImage = global::FinkiFeud.Properties.Resources.FinkiFeud;
             this.Game_Title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Game_Title.FlatAppearance.BorderSize = 0;
             this.Game_Title.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Game_Title.Location = new System.Drawing.Point(123, 32);
+            this.Game_Title.Image = global::FinkiFeud.Properties.Resources.FinkiFeud;
+            this.Game_Title.Location = new System.Drawing.Point(12, 32);
             this.Game_Title.Name = "Game_Title";
-            this.Game_Title.Size = new System.Drawing.Size(375, 116);
+            this.Game_Title.Size = new System.Drawing.Size(600, 116);
             this.Game_Title.TabIndex = 2;
             this.Game_Title.TabStop = false;
             this.Game_Title.UseVisualStyleBackColor = false;
@@ -100,9 +100,12 @@
             this.Controls.Add(this.Game_Title);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnStart);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feud";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
