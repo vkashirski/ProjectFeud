@@ -7,23 +7,24 @@ using System.Threading.Tasks;
 
 namespace FinkiFeud
 {
+    [Serializable]
     public class Player
     {
-        public int Number { get; set; }
+        public int Points { get; set; }
         public string Name { get; set; }
+        public String difficulty { get; set; }
         public Image PlayerIcon { get; set; }
-
-        public Player(int num, string name, Image img)
+        public Player(int num, string name, String difficulty, Image playerIcon)
         {
-            Number = num;
+            Points = num;
             Name = name;
-            PlayerIcon = img;
+            this.difficulty = difficulty;
+            PlayerIcon = playerIcon;
         }
 
-        public void Draw(Graphics g)
+        public override string ToString()
         {
-            g.DrawImageUnscaled(PlayerIcon, 100, 100, 20, 20);
-
+            return string.Format("{0} : {1}", Name, Points);
         }
     }
 }
