@@ -28,13 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.mazeTimer = new System.Windows.Forms.Timer(this.components);
+            this.lbTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // mazeTimer
+            // 
+            this.mazeTimer.Tick += new System.EventHandler(this.mazeTimer_Tick);
+            // 
+            // lbTime
+            // 
+            this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTime.BackColor = System.Drawing.Color.Transparent;
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.ForeColor = System.Drawing.Color.White;
+            this.lbTime.Location = new System.Drawing.Point(12, 9);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(1260, 98);
+            this.lbTime.TabIndex = 0;
+            this.lbTime.Text = "00";
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MazeFinale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 643);
+            this.ClientSize = new System.Drawing.Size(1284, 669);
+            this.Controls.Add(this.lbTime);
             this.Name = "MazeFinale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MazeFinale";
@@ -45,5 +67,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer mazeTimer;
+        private System.Windows.Forms.Label lbTime;
     }
 }

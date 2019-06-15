@@ -14,3 +14,5 @@ C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.csproj.Gener
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.csproj.CoreCompileInputs.cache
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.exe
 C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.pdb
+C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.Win.resources
+C:\Users\Monny\source\repos\FinkiFeud\FinkiFeud\obj\Debug\FinkiFeud.Lose.resources

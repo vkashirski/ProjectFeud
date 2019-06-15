@@ -44,10 +44,9 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Navy;
-            this.btnStart.Location = new System.Drawing.Point(304, 190);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Location = new System.Drawing.Point(228, 154);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(207, 54);
+            this.btnStart.Size = new System.Drawing.Size(155, 44);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "NEW GAME";
             this.btnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -65,10 +64,9 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Navy;
-            this.btnExit.Location = new System.Drawing.Point(304, 251);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Location = new System.Drawing.Point(228, 204);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(207, 54);
+            this.btnExit.Size = new System.Drawing.Size(155, 44);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "EXIT";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -79,33 +77,35 @@
             // 
             this.Game_Title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Game_Title.BackColor = System.Drawing.Color.Transparent;
-            this.Game_Title.BackgroundImage = global::FinkiFeud.Properties.Resources.FinkiFeud;
             this.Game_Title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Game_Title.FlatAppearance.BorderSize = 0;
             this.Game_Title.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Game_Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Game_Title.Location = new System.Drawing.Point(218, 39);
-            this.Game_Title.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Game_Title.Image = global::FinkiFeud.Properties.Resources.FinkiFeud;
+            this.Game_Title.Location = new System.Drawing.Point(12, 32);
             this.Game_Title.Name = "Game_Title";
-            this.Game_Title.Size = new System.Drawing.Size(500, 143);
+            this.Game_Title.Size = new System.Drawing.Size(600, 116);
             this.Game_Title.TabIndex = 2;
             this.Game_Title.TabStop = false;
             this.Game_Title.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(832, 395);
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.Game_Title);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnStart);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feud";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);

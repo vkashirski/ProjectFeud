@@ -16,20 +16,22 @@ namespace FinkiFeud
 {
     public partial class ChooseGame : Form
     {
+        //Create a player and settings that will be sent to the form MainGame
         public static Player player = new Player(0, "", "",null);
         public static int counter = 1;
-        String FileName;
-        MainGame game;
+        
+        
         public List<Player> SortedPlayers;
         public static bool windowedMode;
         public static bool backgroundMusic;
         public static bool backgroundSound;
+        public static bool returnDialog;
         public ChooseGame()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
 
-            
+            //Load sorted players from a text file
             String playersInfo = File.ReadAllText("Players.txt");
             String[] players = playersInfo.Split('~');
             if (playersInfo!= null)
@@ -47,41 +49,46 @@ namespace FinkiFeud
             }
             SortedPlayers = MainGame.players.OrderByDescending(o => o.Points).ToList();
         }
+
+        //Add an image for the player when he clicks on the image
         private void pbTeam1Player1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-
-            FileName = "Untitled";
-
+            OpenFileDialog open = new OpenFileDialog();  
             // image filters  
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp;*.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 // display image in picture box  
-                pbTeam1Player1.Image = new Bitmap(open.FileName);
+                pPlayerImage.Image = new Bitmap(open.FileName);
             }
         }
         
+        //Start the game
         private void btnStart_Click(object sender, EventArgs e)
         {
-            String name = tbTeam1Player1.Text;
+            String name;
+            if (tbPlayerName.Text == null) { name = "Unknown"; } else {
+                name = tbPlayerName.Text;
+            }
             String diff = comboBox1.Text;
             int points = 0;
             Image playerIcon = null;
-            if (pbTeam1Player1.Image != null)
+            if (pPlayerImage.Image != null)
             {
-                playerIcon = pbTeam1Player1.Image;
+                playerIcon = pPlayerImage.Image;
             }
             else
             {
                 playerIcon = Properties.Resources.avatar_generic;
             }
+            
             Player p1 = new Player(points, name, diff,playerIcon);
             player = p1;
             windowedMode = rbWindowed.Checked;
             backgroundMusic = cbBackgroundMusic.Checked;
             backgroundSound = cbSounds.Checked;
-            game = new MainGame();
+            
+            MainGame game = new MainGame();
             this.Hide();
             game.Closed += (s, args) => this.Close();
             game.Show();
@@ -93,6 +100,8 @@ namespace FinkiFeud
             add.Show();
         }
 
+
+        //Load just 10 of the high scores
         private void btnHighscores_Click(object sender, EventArgs e)
         {
             HighScores highScores = new HighScores();
@@ -138,7 +147,8 @@ namespace FinkiFeud
             */
         }
 
-        private void openFile()
+
+        /*private void openFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Circles doc file (*.crl)|*.crl";
@@ -167,11 +177,6 @@ namespace FinkiFeud
         private void loadPreviousGame_Click(object sender, EventArgs e)
         {
             openFile();
-        }
-
-        private void ChooseGame_Load(object sender, EventArgs e)
-        {
-
-        }
+        }*/
     }
 }
