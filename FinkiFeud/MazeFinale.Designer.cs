@@ -60,6 +60,7 @@
             this.Name = "MazeFinale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MazeFinale";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MazeFinale_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MazeFinale_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MazeFinale_KeyDown);
             this.ResumeLayout(false);

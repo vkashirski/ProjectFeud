@@ -23,7 +23,7 @@ namespace FinkiFeud
 
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty, ChooseGame.player.PlayerIcon);
+            currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.Difficulty, ChooseGame.player.PlayerIcon);
             label2.Text = currentPlayer.Name;
         }
 

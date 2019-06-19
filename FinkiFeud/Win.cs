@@ -15,7 +15,7 @@ namespace FinkiFeud
         public Win()
         {
             InitializeComponent();
-            lbScore.Text = MainGame.Points.ToString();
+            lbScore.Text = MainGame.finalScore.ToString();
             if (ChooseGame.windowedMode == false)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
@@ -25,7 +25,7 @@ namespace FinkiFeud
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            ChooseGame.goBack = true;
             this.Close();
         }
     }

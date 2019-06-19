@@ -19,7 +19,7 @@ namespace FinkiFeud
         //Create a player and settings that will be sent to the form MainGame
         public static Player player = new Player(0, "", "",null);
         public static int counter = 1;
-        
+        public static bool goBack;
         
         public List<Player> SortedPlayers;
         public static bool windowedMode;
@@ -30,7 +30,7 @@ namespace FinkiFeud
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-
+            goBack = false;
             //Load sorted players from a text file
             String playersInfo = File.ReadAllText("Players.txt");
             String[] players = playersInfo.Split('~');
@@ -112,7 +112,7 @@ namespace FinkiFeud
                     DataGridViewRow row = (DataGridViewRow)highScores.dataGridHighscores.Rows[0].Clone();
                     row.Cells[0].Value = p.Name;
                     row.Cells[1].Value = p.Points;
-                    row.Cells[2].Value = p.difficulty;
+                    row.Cells[2].Value = p.Difficulty;
                     row.HeaderCell.Value = String.Format("{0}", count+1);
                     highScores.dataGridHighscores.Rows.Add(row);
                     count++;
@@ -145,6 +145,12 @@ namespace FinkiFeud
             }
             MessageBox.Show(sb.ToString());
             */
+        }
+
+        private void ChooseGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
         }
 
 

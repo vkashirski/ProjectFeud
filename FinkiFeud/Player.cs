@@ -12,13 +12,13 @@ namespace FinkiFeud
     {
         public int Points { get; set; }
         public string Name { get; set; }
-        public String difficulty { get; set; }
+        public String Difficulty { get; set; }
         public Image PlayerIcon { get; set; }
-        public Player(int num, string name, String difficulty, Image playerIcon)
+        public Player(int points, string name, String difficulty, Image playerIcon)
         {
-            Points = num;
+            Points = points;
             Name = name;
-            this.difficulty = difficulty;
+            this.Difficulty = difficulty;
             PlayerIcon = playerIcon;
         }
 

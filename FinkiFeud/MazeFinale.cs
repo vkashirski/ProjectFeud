@@ -39,6 +39,12 @@ namespace FinkiFeud
         //Time
         private static int Time=30;
         public static int passedTime;
+
+        private void MazeFinale_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
         public static bool atEnd = false;
 
         bool windowAllowed = true;
@@ -73,8 +79,9 @@ namespace FinkiFeud
                 height += newX;
             }
 
-            //Get the player from the previous form
-            currentPlayer = new MazePlayer(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty, ChooseGame.player.PlayerIcon, startLocation);
+            //Get the player from the mainGame
+            currentPlayer = MainGame.mazePlayer;
+            currentPlayer.Location = startLocation;
             
             
 

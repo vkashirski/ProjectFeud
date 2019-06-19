@@ -20,33 +20,37 @@ namespace FinkiFeud
         public static int questionCounter = 1;
         public static List<int> questionIndex = new List<int>();
 
-        public static int counter = 0;
-        public bool flag = false;
-        public static int Time = 60;
-        public static bool gameFinished = false;
+        private int counter = 0;
+        private bool flag = false;
+        private static int Time = 60;
 
+        public static bool gameFinished = false;
         public static List<Player> players = new List<Player>();
-        public String Difficulty;
-        public int multiplier = 1;
-        public static int Points = 0;
-        public int flagPoints = 0;
-        Player currentPlayer;
+        public static MazePlayer mazePlayer;
+        public static int finalScore;
+
+        private PlayerDoc mainGame;
+        //How much points will the answer give the player
+        private int answerPoints;
+        
+        private int flagPoints = 0;
+        private Player currentPlayer;
         //String FileName;
 
         //pause/continue button 
-        public Boolean pauseFlag = false;
+        private Boolean pauseFlag = false;
 
 
         //This list will contain the answers of the questions
-        public List<String> answers = new List<String>();
+        private List<String> answers = new List<String>();
 
         //SoundPlayers
-        SoundPlayer RevealSoundPlayer = new SoundPlayer();
-        SoundPlayer TryAgainSoundPlayer = new SoundPlayer();
-        SoundPlayer WrongSoundPlayer = new SoundPlayer();
+        private SoundPlayer RevealSoundPlayer = new SoundPlayer();
+        private SoundPlayer TryAgainSoundPlayer = new SoundPlayer();
+        private SoundPlayer WrongSoundPlayer = new SoundPlayer();
 
         //List for saving all the answers the user has already tried that were correct
-        public List<String> alreadyAnswered = new List<String>();
+        private List<String> alreadyAnswered = new List<String>();
 
         public MainGame()
         {
@@ -56,6 +60,11 @@ namespace FinkiFeud
 
             //Initialize the Component
             InitializeComponent();
+            currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.Difficulty, ChooseGame.player.PlayerIcon);
+            mainGame = new PlayerDoc(currentPlayer);
+            mainGame.getTimeFromDifficulty();
+            Time = mainGame.Time;
+            mainGame.getScoreMultiplier();
 
             //Resolve Flickering
             this.DoubleBuffered = true;
@@ -95,40 +104,18 @@ namespace FinkiFeud
             }
 
             //current player
-            currentPlayer = new Player(ChooseGame.player.Points, ChooseGame.player.Name, ChooseGame.player.difficulty,ChooseGame.player.PlayerIcon);
-            Difficulty = currentPlayer.difficulty;
+         
             tbPlayerName.Text = currentPlayer.Name;
             pbPlayerIcon.Image = currentPlayer.PlayerIcon;
-
-            //points multiplier
-            if (Difficulty.Equals("Easy"))
-                multiplier = 1;
-            else if (Difficulty.Equals("Normal"))
-                multiplier = 2;
-            else if (Difficulty.Equals("Hard"))
-                multiplier = 3;
-
-            //difficulty time setting
-            if (Difficulty.Equals("Easy"))
-            {
-                Time = 41;
-            }
-            if (Difficulty.Equals("Normal"))
-            {
-                Time = 31;
-            }
-            if (Difficulty.Equals("Hard"))
-            {
-                Time = 21;
-            }
+            
         }
 
         public void addPlayerInText()
         {
             //get new info
-            String name = ChooseGame.player.Name;
-            String points = Points.ToString();
-            String difficulty = ChooseGame.player.difficulty;
+            String name = mainGame.MainPlayer.Name;
+            String points = mainGame.Score.ToString();
+            String difficulty = mainGame.MainPlayer.Difficulty;
             String playersInfo = File.ReadAllText("Players.txt");
             String playerInfo = name + "-" + points + "-" + difficulty;
             String final = playersInfo + "~" + playerInfo;
@@ -143,13 +130,18 @@ namespace FinkiFeud
         {
             //close game
             timer1.Stop();
+
+            mazePlayer = new MazePlayer(mainGame.Score, mainGame.MainPlayer.Name, mainGame.MainPlayer.Difficulty, mainGame.MainPlayer.PlayerIcon, new Point(0, 0));
+
             MazeFinale mazeGame = new MazeFinale();
             this.Hide();
             if (mazeGame.ShowDialog() == DialogResult.Cancel)
             {
                 if (MazeFinale.atEnd == true)
                 {
-                    Points += 100 + MazeFinale.passedTime;
+                    mainGame.passedMaze = true;
+                    mainGame.updateScore(0);
+                    finalScore = mainGame.Score;
                     mazeGame.Close();
                 }
             }
@@ -170,7 +162,7 @@ namespace FinkiFeud
                 Lose gameLost = new Lose();
                 if (gameLost.ShowDialog() == DialogResult.Cancel)
                 {
-                    Points = 0;
+                    mainGame.Score = 0;
                     gameFinished = true;
                     this.Close();
                 }
@@ -233,8 +225,7 @@ namespace FinkiFeud
                 gameDone();
             }
         }
-
-        String lastCorrectTriedAnswer = null;
+        
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             bool noAnswerFound = true;
@@ -245,6 +236,7 @@ namespace FinkiFeud
                 //Check if the answer was already entered before, so the player doesn't get double the points for writing the same answer
                     if (alreadyAnswered.Contains(triedAnswer.ToLower()))
                     {
+                        answerPoints = 0;
                         tbAnswer.Text = "";
                         if (TryAgainSoundPlayer.IsLoadCompleted == true)
                         {
@@ -275,54 +267,55 @@ namespace FinkiFeud
                                 {
                                     answer1.Text = answer;
                                     answer1.Image = null;
-                                    Points += 12 * multiplier;
+                                    answerPoints = 12;
 
                                 }
                                 if (index == 1)
                                 {
                                     answer2.Text = answer;
                                     answer2.Image = null;
-                                    Points += 10 * multiplier;
+                                    answerPoints = 10;
 
                                 }
                                 if (index == 2)
                                 {
                                     answer3.Text = answer;
                                     answer3.Image = null;
-                                    Points += 8 * multiplier;
+                                    answerPoints = 8;
                                 }
                                 if (index == 3)
                                 {
                                     answer4.Text = answer;
                                     answer4.Image = null;
-                                    Points += 6 * multiplier;
+                                    answerPoints = 6;
                                 }
                                 if (index == 4)
                                 {
                                     answer5.Text = answer;
                                     answer5.Image = null;
-                                    Points += 4 * multiplier;
+                                    answerPoints = 4;
                                 }
                                 if (index == 5)
                                 {
                                     answer6.Text = answer;
                                     answer6.Image = null;
-                                    Points += 3 * multiplier;
+                                    answerPoints = 3;
                                 }
                                 if (index == 6)
                                 {
                                     answer7.Text = answer;
                                     answer7.Image = null;
-                                    Points += 2 * multiplier;
+                                    answerPoints = 2;
                                 }
                                 if (index == 7)
                                 {
                                     answer8.Text = answer;
                                     answer8.Image = null;
-                                    Points += 1 * multiplier;
+                                    answerPoints = 1;
                                 }
+
+                               
                                 tbAnswer.Text = "";
-                                lastCorrectTriedAnswer = answer.Trim().ToLower();
                             }
 
 
@@ -339,13 +332,15 @@ namespace FinkiFeud
                             if (flagPoints == 0)
                             {
                                 flagPoints = 1;
-                                if (Points > 0)
-                                    Points -= 1;
+                                if (mainGame.Score > 0)
+                                    answerPoints=-1;
                             }
                         }
                     }
-                    lbPoints.Text = Points.ToString();
+                    mainGame.updateScore(answerPoints);
+                    lbPoints.Text = mainGame.Score.ToString();
                     flagPoints = 0;
+                    answerPoints = 0;
                 }
             
         }
@@ -362,18 +357,7 @@ namespace FinkiFeud
                 alreadyAnswered.Clear();
 
                 //Set the time back
-                if (Difficulty.Equals("Easy"))
-                {
-                    Time = 41;
-                }
-                if (Difficulty.Equals("Normal"))
-                {
-                    Time = 31;
-                }
-                if (Difficulty.Equals("Hard"))
-                {
-                    Time = 21;
-                }
+                Time = mainGame.Time;
                 tbAnswer.Text = "";
             }
             Time--;
@@ -474,6 +458,9 @@ namespace FinkiFeud
         
         private void MainGame_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (ChooseGame.goBack == true) {
+                e.Cancel = false;
+            }
             //If the game is finished no need for a confimation as the game has alreaady ended for the player
             if(!gameFinished)
             {
@@ -491,7 +478,6 @@ namespace FinkiFeud
             {
                 
                 e.Cancel = false;
-                Application.Exit();
             }
         }
 

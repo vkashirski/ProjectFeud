@@ -287,6 +287,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choose your game settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChooseGame_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pPlayerImage)).EndInit();

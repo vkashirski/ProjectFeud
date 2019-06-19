@@ -51,11 +51,11 @@
             this.btnClose.BackgroundImage = global::FinkiFeud.Properties.Resources._160205104032_key_race_alert_background_full_1691;
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClose.Font = new System.Drawing.Font("Kristen ITC", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(309, 322);
+            this.btnClose.Location = new System.Drawing.Point(256, 322);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(187, 68);
+            this.btnClose.Size = new System.Drawing.Size(270, 68);
             this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "Go Back";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 

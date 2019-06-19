@@ -13,7 +13,7 @@ namespace FinkiFeud
     {
         public Point Location { get; set; }
         public int velocity;
-        public MazePlayer(int num,string username, string difficulty, Image playerIcon,Point startLocation) : base(num, username, difficulty, playerIcon)
+        public MazePlayer(int points,string username, string difficulty, Image playerIcon,Point startLocation) : base(points, username, difficulty, playerIcon)
         {
             Location = startLocation;
             PlayerIcon = ResizeImage(PlayerIcon, 80, 80);

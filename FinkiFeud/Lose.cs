@@ -24,6 +24,7 @@ namespace FinkiFeud
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ChooseGame.goBack = true;
             this.Close();
         }
     }
