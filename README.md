@@ -1,5 +1,3 @@
-# ProjectFeud
-
 # Language/Јазик
 
 * # [English](README_ENG.md)
