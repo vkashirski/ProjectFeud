@@ -1,4 +1,4 @@
 # Language/Јазик
 
-* # [English](README_ENG.md)
-* # [Macedonian](README_MKD.md)
+* # [English / Англиски](README_ENG.md)
+* # [Macedonian / Македонски](README_MKD.md)
